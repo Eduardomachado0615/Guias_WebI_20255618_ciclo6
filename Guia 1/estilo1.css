@@ -1,0 +1,30 @@
+body {
+    background-color: lightblue;
+}
+
+.contenido {
+    font-size: 20px;
+}
+
+.titulo-principal {
+    text-decoration: underline;
+    color: white;
+}
+
+.destacado-navy {
+    color: navy;
+    font-weight: bold;
+}
+
+.texto-mayus-justificado {
+    text-transform: uppercase;
+    text-align: justify;
+}
+
+.texto-pequeno {
+    font-size: 12px;
+}
+
+.etiqueta-code {
+    font-style: italic;
+}
