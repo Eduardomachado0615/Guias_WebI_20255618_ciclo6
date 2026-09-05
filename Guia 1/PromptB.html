@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTOCITY | Motocicletas Katana y Dayun</title>
+    
+    <style>
+        /* PALETA DE COLORES MOTOCITY + DARK MODE PREMIUM */
+        :root {
+            --motocity-red: #E30613;
+            --red-hover: #b3000b;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --whatsapp: #25D366;
+            --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER Y NAVEGACIÓN PREMIUM */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-main);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .logo span {
+            color: var(--motocity-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--motocity-red);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: #000;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+        }
+
+        /* HERO SECTION CON IMAGEN DE FONDO */
+        .hero {
+            margin-top: 60px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(to right, rgba(18, 18, 18, 0.9) 0%, rgba(18, 18, 18, 0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .hero-text-box {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: var(--motocity-red);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--motocity-red);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--red-hover);
+            transform: translateY(-2px);
+        }
+
+        /* SECCIONES COMUNES */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        .section-title span {
+            color: var(--motocity-red);
+        }
+
+        /* CATEGORÍAS */
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cat-card {
+            background-color: var(--bg-card);
+            border: 1px solid #333;
+            padding: 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .cat-card:hover {
+            border-color: var(--motocity-red);
+            background-color: rgba(227, 6, 19, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .cat-card h3 {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        /* PRODUCTOS DESTACADOS */
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .producto-card {
+            background-color: var(--bg-card);
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: #555;
+        }
+
+        .producto-img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        .producto-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .producto-card:hover .producto-img {
+            transform: scale(1.05);
+        }
+
+        .producto-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .producto-marca {
+            color: var(--motocity-red);
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .producto-titulo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .producto-detalles {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-cotizar {
+            margin-top: auto;
+            text-align: center;
+            background-color: transparent;
+            border: 1px solid var(--motocity-red);
+            color: var(--motocity-red);
+            padding: 0.8rem;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .btn-cotizar:hover {
+            background-color: var(--motocity-red);
+            color: white;
+        }
+
+        /* FOOTER AGRUPADO */
+        .footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #333;
+            padding: 4rem 1.5rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--motocity-red);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid #222;
+            padding-top: 2rem;
+        }
+
+        /* Menú Móvil Básico */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-dark);
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+                border-bottom: 1px solid #333;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero { min-height: 60vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">MOTO<span>CITY</span></a>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#motocicletas">Motocicletas</a></li>
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#sucursales">Sucursales</a></li>
+                <li><a href="#">Repuestos</a></li>
+            </ul>
+            <a href="https://wa.me/50300000000" class="btn-whatsapp">WhatsApp</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text-box">
+                <h1>Siente el <span>Poder</span> en cada ruta</h1>
+                <p>Descubre el verdadero rendimiento con nuestra línea completa de motocicletas Katana y Dayun en El Salvador.</p>
+                <a href="#motocicletas" class="btn-primary">Ver Modelos</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="categorias" class="section-container">
+        <h2 class="section-title">Elige tu <span>Estilo</span></h2>
+        <div class="categorias-grid">
+            <a href="#" class="cat-card"><h3>Deportivo</h3></a>
+            <a href="#" class="cat-card"><h3>Todo Terreno</h3></a>
+            <a href="#" class="cat-card"><h3>Urbano</h3></a>
+            <a href="#" class="cat-card"><h3>Tricimoto</h3></a>
+            <a href="#" class="cat-card"><h3>Cuadrimoto</h3></a>
+        </div>
+    </section>
+
+    <section id="motocicletas" class="section-container">
+        <h2 class="section-title">Modelos <span>Destacados</span></h2>
+        <div class="productos-grid">
+            
+            <article class="producto-card">
+                <div class="producto-img-container">
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" alt="Katana Nitro 200" class="producto-img">
+                </div>
+                <div class="producto-info">
+                    <span class="producto-marca">Katana • Deportivo</span>
+                    <h3 class="producto-titulo">Nitro 200</h3>
+                    <p class="producto-detalles">Cilindraje 200cc | Tablero Digital | Freno de Disco | 5 Velocidades</p>
+                    <a href="https://wa.me/50300000000?text=Hola,%20me%20interesa%20la%20Katana%20Nitro%20200" class="btn-cotizar" target="_blank">Cotizar Moto</a>
+                </div>
+            </article>
+
+            <article class="producto-card">
+                <div class="producto-img-container">
+                    <img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=600&q=80" alt="Dayun Nave 150" class="producto-img">
+                </div>
+                <div class="producto-info">
+                    <span class="producto-marca">Dayun • Urbano</span>
+                    <h3 class="producto-titulo">Nave 150</h3>
+                    <p class="producto-detalles">Cilindraje 150cc | Súper Económica | Ideal para ciudad y trabajo</p>
+                    <a href="https://wa.me/50300000000?text=Hola,%20me%20interesa%20la%20Dayun%20Nave%20150" class="btn-cotizar" target="_blank">Cotizar Moto</a>
+                </div>
+            </article>
+
+            <article class="producto-card">
+                <div class="producto-img-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0m7MYMuoG72Ee2kh4QrZHoXWHVpZLiQpUXinqy7fZBA&s=10" alt="Katana TT 250" class="producto-img">
+                </div>
+                <div class="producto-info">
+                    <span class="producto-marca">Katana • Todo Terreno</span>
+                    <h3 class="producto-titulo">SMX-250</h3>
+                    <p class="producto-detalles">Cilindraje 250cc | Suspensión Invertida | Llantas de Tacos</p>
+                    <a href="https://wa.me/50300000000?text=Hola,%20me%20interesa%20la%20Katana%20TT-250" class="btn-cotizar" target="_blank">Cotizar Moto</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer id="sucursales" class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Zona Central</h4>
+                <ul>
+                    <li>San Salvador - Roosevelt</li>
+                    <li>San Salvador - San Miguelito</li>
+                    <li>Soyapango</li>
+                    <li>Santa Tecla</li>
+                    <li>Apopa</li>
+                    <li>Chalatenango</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Zona Occidente</h4>
+                <ul>
+                    <li>Santa Ana - Centro</li>
+                    <li>Santa Ana - Bypass</li>
+                    <li>Sonsonate</li>
+                    <li>Ahuachapán</li>
+                    <li>Metapán</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Zona Oriente</h4>
+                <ul>
+                    <li>San Miguel - Roosevelt</li>
+                    <li>Usulután</li>
+                    <li>La Unión</li>
+                    <li>Zacatecoluca</li>
+                    <li>San Francisco Gotera</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto Integral</h4>
+                <ul>
+                    <li>Venta de Motocicletas</li>
+                    <li>Repuestos Originales</li>
+                    <li>Talleres Autorizados</li>
+                    <li>Financiamiento Directo</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MOTOCITY El Salvador. Diseño y Desarrollo Web optimizado.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle básico para el menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const nav = document.getElementById('nav-links');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
