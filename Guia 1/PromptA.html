@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motocity El Salvador — Tu próxima moto empieza aquí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --asphalt:#15171B;
+    --asphalt-2:#1E2126;
+    --concrete:#2B2F36;
+    --line:#383D45;
+    --paper:#F3F1EC;
+    --paper-2:#E7E3DA;
+    --amber:#FFB020;
+    --amber-dim:#B87E12;
+    --cyan:#3FA9C9;
+    --ink:#15171B;
+    --smoke:#9AA0AA;
+    --white:#FDFCFA;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:1.02;
+    font-weight:600;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  button{font:inherit; cursor:pointer;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 28px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--asphalt);
+    color:var(--smoke);
+    font-size:12.5px;
+  }
+  .topbar .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:8px; padding-bottom:8px;
+    gap:16px; flex-wrap:wrap;
+  }
+  .topbar a{color:var(--smoke);}
+  .topbar a:hover{color:var(--amber);}
+  .topbar .tel{color:var(--amber); font-weight:600;}
+  .topbar .social{display:flex; gap:14px;}
+
+  /* ---------- nav ---------- */
+  header.main-nav{
+    background:var(--asphalt);
+    border-bottom:1px solid #000;
+    position:sticky; top:0; z-index:50;
+  }
+  .main-nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+  }
+  .logo{
+    display:flex; align-items:baseline; gap:2px;
+    font-family:'Oswald',sans-serif; font-weight:700; font-size:24px;
+    color:var(--white); text-transform:uppercase;
+  }
+  .logo span{color:var(--amber);}
+  nav.links{display:flex; gap:28px;}
+  nav.links a{
+    color:var(--paper-2); font-size:14.5px; font-weight:500;
+    padding:6px 2px; border-bottom:2px solid transparent;
+  }
+  nav.links a:hover{color:var(--white); border-color:var(--amber);}
+  .nav-cta{
+    background:var(--amber); color:var(--asphalt); font-weight:700;
+    padding:10px 20px; font-size:14px;
+    clip-path:polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  }
+  .nav-cta:hover{background:var(--white);}
+  .burger{display:none; flex-direction:column; gap:5px; background:none; border:0;}
+  .burger span{width:24px; height:2px; background:var(--white);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--asphalt);
+    position:relative;
+    overflow:hidden;
+    padding:72px 0 60px;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:repeating-linear-gradient(115deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 34px);
+    pointer-events:none;
+  }
+  .hero .wrap{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:center;
+  }
+  .hero-tag{
+    display:inline-block;
+    color:var(--amber); font-weight:600; font-size:14px;
+    border-left:3px solid var(--amber); padding-left:10px;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    color:var(--white); font-size:clamp(38px, 5.4vw, 66px);
+  }
+  .hero h1 em{color:var(--amber); font-style:normal;}
+  .hero p.lead{
+    color:var(--smoke); font-size:17px; max-width:46ch;
+    margin-top:20px;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:15px 28px; font-weight:600; font-size:15px;
+    border:2px solid transparent;
+  }
+  .btn-primary{
+    background:var(--amber); color:var(--asphalt);
+    clip-path:polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  }
+  .btn-primary:hover{background:var(--white);}
+  .btn-ghost{
+    border-color:var(--line); color:var(--white);
+    clip-path:polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  }
+  .btn-ghost:hover{border-color:var(--amber); color:var(--amber);}
+  .hero-stats{display:flex; gap:34px; margin-top:44px; flex-wrap:wrap;}
+  .hero-stats div b{display:block; font-family:'Oswald',sans-serif; font-size:26px; color:var(--white);}
+  .hero-stats div span{color:var(--smoke); font-size:13px;}
+
+  /* gauge graphic */
+  .gauge-wrap{position:relative; display:flex; align-items:center; justify-content:center;}
+  .gauge-wrap svg{width:100%; height:auto; max-width:420px;}
+  .ticker{
+    background:var(--asphalt-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    overflow:hidden; white-space:nowrap; padding:14px 0;
+  }
+  .ticker-track{display:inline-block; padding-left:100%; animation:scroll 26s linear infinite;}
+  .ticker-track span{
+    color:var(--smoke); font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:0.08em;
+    margin:0 26px;
+  }
+  .ticker-track span b{color:var(--amber);}
+  @keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-100%);}}
+
+  /* ---------- section heads ---------- */
+  .section{padding:76px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:20px; margin-bottom:36px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(28px,3.6vw,40px);}
+  .section-head p{color:#5B6068; max-width:44ch; font-size:15px;}
+
+  /* ---------- category chips ---------- */
+  .cats{background:var(--paper);}
+  .chip-row{display:flex; flex-wrap:wrap; gap:12px;}
+  .chip{
+    background:var(--white); border:1.5px solid var(--paper-2);
+    padding:12px 22px; border-radius:100px; font-weight:600; font-size:14.5px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .chip:hover{border-color:var(--ink); background:var(--ink); color:var(--white);}
+  .chip i{width:8px; height:8px; border-radius:50%; background:var(--amber); display:inline-block;}
+
+  /* ---------- models ---------- */
+  .models{background:var(--asphalt); color:var(--white);}
+  .models .section-head p{color:var(--smoke);}
+  .models .section-head h2{color:var(--white);}
+  .model-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:190px;
+    gap:14px;
+  }
+  .m-card{
+    background:var(--asphalt-2); border:1px solid var(--line);
+    padding:22px; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    clip-path:polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+  }
+  .m-card:hover{border-color:var(--amber);}
+  .m-card.big{grid-column:span 2; grid-row:span 2;}
+  .m-card .brand-tag{
+    position:absolute; top:18px; left:22px;
+    font-size:11px; font-weight:700; letter-spacing:0.06em;
+    color:var(--amber);
+  }
+  .m-card .style-tag{
+    position:absolute; top:18px; right:22px;
+    font-size:11px; color:var(--smoke);
+  }
+  .m-card .bike-icon{
+    position:absolute; right:14px; bottom:14px; opacity:0.14; width:58%;
+  }
+  .m-card.big .bike-icon{width:52%; opacity:0.18;}
+  .m-card h3{font-size:19px; color:var(--white); position:relative; z-index:2;}
+  .m-card.big h3{font-size:27px;}
+  .m-card .cta-mini{
+    margin-top:10px; font-size:13px; color:var(--amber); font-weight:600;
+    position:relative; z-index:2; width:fit-content;
+    border-bottom:1px solid transparent;
+  }
+  .m-card:hover .cta-mini{border-color:var(--amber);}
+  .models-more{
+    text-align:center; margin-top:34px;
+  }
+
+  /* ---------- financing split ---------- */
+  .financing{
+    position:relative;
+    background:var(--amber);
+    color:var(--asphalt);
+    overflow:hidden;
+  }
+  .financing .wrap{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+    padding:70px 28px;
+    position:relative; z-index:2;
+  }
+  .financing::after{
+    content:"";
+    position:absolute; top:0; right:-10%; bottom:0; width:55%;
+    background:var(--asphalt);
+    clip-path:polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .financing h2{color:var(--asphalt); font-size:clamp(28px,3.6vw,42px);}
+  .financing p.lead{max-width:42ch; margin-top:16px; font-size:15.5px;}
+  .financing ul{margin-top:24px; display:flex; flex-direction:column; gap:12px;}
+  .financing ul li{display:flex; gap:10px; font-weight:600; font-size:15px;}
+  .financing ul li::before{content:"—"; color:var(--asphalt);}
+  .financing .btn-primary{
+    background:var(--asphalt); color:var(--white); margin-top:28px;
+  }
+  .financing .btn-primary:hover{background:var(--white); color:var(--asphalt);}
+  .financing-panel{
+    position:relative; z-index:2; color:var(--white);
+    padding:14px;
+  }
+  .financing-panel .stat{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.15);
+  }
+  .financing-panel .stat:first-child{padding-top:0;}
+  .financing-panel .stat b{font-family:'Oswald',sans-serif; font-size:30px;}
+  .financing-panel .stat span{font-size:13px; color:var(--smoke); text-align:right; max-width:16ch;}
+
+  /* ---------- branches ---------- */
+  .branches{background:var(--paper);}
+  .branch-cols{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:0;
+    border-top:1px solid var(--paper-2);
+  }
+  .branch-col{border-left:1px solid var(--paper-2); padding:24px;}
+  .branch-col:last-child{border-right:1px solid var(--paper-2);}
+  .branch-col h3{font-size:14px; color:var(--amber-dim); margin-bottom:14px; letter-spacing:0.03em;}
+  .branch-col ul li{
+    padding:9px 0; border-bottom:1px dashed var(--paper-2);
+    display:flex; justify-content:space-between; font-size:14.5px; gap:10px;
+  }
+  .branch-col ul li:last-child{border-bottom:0;}
+  .branch-col ul li a{color:#5B6068; font-weight:500; white-space:nowrap;}
+  .branch-col ul li a:hover{color:var(--ink);}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--asphalt); color:var(--smoke); padding:56px 0 26px;}
+  .foot-grid{
+    display:grid; grid-template-columns:1.3fr 0.9fr 0.9fr 1fr; gap:36px;
+    padding-bottom:40px; border-bottom:1px solid var(--line);
+  }
+  .foot-grid h4{color:var(--white); font-size:13px; margin-bottom:16px; letter-spacing:0.03em; text-transform:uppercase; font-family:'Inter',sans-serif; font-weight:700;}
+  .foot-grid ul li{margin-bottom:10px; font-size:14px;}
+  .foot-grid ul li a:hover{color:var(--amber);}
+  .foot-logo{font-family:'Oswald',sans-serif; font-weight:700; font-size:22px; color:var(--white); text-transform:uppercase;}
+  .foot-logo span{color:var(--amber);}
+  .foot-grid p{font-size:14px; max-width:32ch; margin-top:14px;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; padding-top:22px; font-size:13px; flex-wrap:wrap; gap:10px;
+  }
+  .foot-social{display:flex; gap:16px;}
+
+  /* ---------- floating whatsapp ---------- */
+  .wa-float{
+    position:fixed; right:22px; bottom:22px; z-index:60;
+    background:#25D366; color:var(--white); width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.3);
+  }
+  .wa-float:hover{transform:scale(1.06);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    nav.links{display:none;}
+    .burger{display:flex;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .gauge-wrap{order:-1; max-width:280px; margin:0 auto;}
+    .model-grid{grid-template-columns:repeat(2,1fr);}
+    .m-card.big{grid-column:span 2; grid-row:span 1; height:220px;}
+    .financing .wrap{grid-template-columns:1fr;}
+    .financing::after{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .branch-cols{grid-template-columns:1fr;}
+    .branch-col{border-right:1px solid var(--paper-2) !important;}
+  }
+  @media (max-width:560px){
+    .topbar .wrap{font-size:11.5px;}
+    .model-grid{grid-template-columns:1fr;}
+    .m-card.big{grid-column:span 1;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero-stats{gap:22px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div>PBX <a href="tel:25253800" class="tel">2525-3800</a> &nbsp;·&nbsp; <a href="mailto:ventas@motocity.com.sv">ventas@motocity.com.sv</a></div>
+    <div class="social">
+      <a href="https://wa.me/50325253800">WhatsApp</a>
+      <a href="https://www.facebook.com/motocitysv">Facebook</a>
+      <a href="https://www.instagram.com/motocitysv/?hl=es-la">Instagram</a>
+      <a href="https://www.youtube.com/channel/UCh-fHPLs50VSjh8czmgwCXg">YouTube</a>
+    </div>
+  </div>
+</div>
+
+<header class="main-nav">
+  <div class="wrap">
+    <a href="#" class="logo">MOTO<span>CITY</span></a>
+    <nav class="links">
+      <a href="#modelos">Motocicletas</a>
+      <a href="#financiamiento">Financiamiento</a>
+      <a href="#repuestos">Repuestos</a>
+      <a href="#talleres">Talleres</a>
+      <a href="#sucursales">Sucursales</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="#cotizar" class="nav-cta">Cotizar ahora</a>
+    <button class="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="hero-tag">Katana · Dayun · El Salvador</span>
+      <h1>Tu próxima moto<br>empieza <em>aquí</em>.</h1>
+      <p class="lead">Motos urbanas, deportivas y de trabajo, con financiamiento a tu medida y repuestos originales en más de 20 sucursales del país.</p>
+      <div class="hero-ctas">
+        <a href="#modelos" class="btn btn-primary">Ver motocicletas</a>
+        <a href="#financiamiento" class="btn btn-ghost">Cómo financiar</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>20+</b><span>Sucursales a nivel nacional</span></div>
+        <div><b>2</b><span>Marcas: Katana y Dayun</span></div>
+        <div><b>24h</b><span>Respuesta por WhatsApp</span></div>
+      </div>
+    </div>
+    <div class="gauge-wrap">
+      <svg viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="200" r="178" stroke="#383D45" stroke-width="1.5"/>
+        <circle cx="200" cy="200" r="150" stroke="#383D45" stroke-width="1"/>
+        <g stroke="#9AA0AA" stroke-width="2">
+          <line x1="200" y1="30" x2="200" y2="50"/>
+          <line x1="316" y1="84" x2="302" y2="98"/>
+          <line x1="370" y1="200" x2="350" y2="200"/>
+          <line x1="316" y1="316" x2="302" y2="302"/>
+          <line x1="84" y1="316" x2="98" y2="302"/>
+          <line x1="30" y1="200" x2="50" y2="200"/>
+          <line x1="84" y1="84" x2="98" y2="98"/>
+        </g>
+        <path d="M200 200 L120 260" stroke="#FFB020" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="200" cy="200" r="10" fill="#FFB020"/>
+        <path d="M110 260 A125 125 0 0 1 105 190" stroke="#FFB020" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+        <text x="200" y="120" text-anchor="middle" fill="#FDFCFA" font-family="Oswald, sans-serif" font-size="34" font-weight="600">160</text>
+        <text x="200" y="142" text-anchor="middle" fill="#9AA0AA" font-family="Inter, sans-serif" font-size="12" letter-spacing="2">KM/H MAX</text>
+      </svg>
+    </div>
+  </div>
+  <div class="ticker">
+    <div class="ticker-track">
+      <span><b>KATANA</b> — deportivas y urbanas</span>
+      <span><b>DAYUN</b> — trabajo y todo terreno</span>
+      <span>Financiamiento a tu medida</span>
+      <span>Repuestos originales</span>
+      <span>Talleres autorizados</span>
+      <span><b>KATANA</b> — deportivas y urbanas</span>
+      <span><b>DAYUN</b> — trabajo y todo terreno</span>
+      <span>Financiamiento a tu medida</span>
+      <span>Repuestos originales</span>
+      <span>Talleres autorizados</span>
+    </div>
+  </div>
+</section>
+
+<section class="section cats">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Encuentra tu estilo</h2>
+      <p>Del tráfico de la ciudad al camino de tierra: filtra por el tipo de moto que necesitas.</p>
+    </div>
+    <div class="chip-row">
+      <a href="#modelos" class="chip"><i></i>Deportivo</a>
+      <a href="#modelos" class="chip"><i></i>Urbano</a>
+      <a href="#modelos" class="chip"><i></i>Todo terreno</a>
+      <a href="#modelos" class="chip"><i></i>Tricimoto</a>
+      <a href="#modelos" class="chip"><i></i>Cuadrimoto</a>
+    </div>
+  </div>
+</section>
+
+<section class="section models" id="modelos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Modelos destacados</h2>
+      <p>Una muestra del catálogo Katana y Dayun. Cotiza el que más te guste, sin compromiso.</p>
+    </div>
+    <div class="model-grid">
+      <div class="m-card big">
+        <span class="brand-tag">KATANA · NUEVO</span>
+        <span class="style-tag">Deportivo</span>
+        <svg class="bike-icon" viewBox="0 0 200 100" fill="none"><circle cx="40" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><circle cx="160" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><path d="M40 75 L90 40 L120 40 L160 75 M90 40 L70 75 M120 40 L140 30" stroke="#FDFCFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Katana KR-250</h3>
+        <span class="cta-mini">Cotizar este modelo</span>
+      </div>
+      <div class="m-card">
+        <span class="brand-tag">KATANA</span>
+        <span class="style-tag">Deportivo</span>
+        <svg class="bike-icon" viewBox="0 0 200 100" fill="none"><circle cx="40" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><circle cx="160" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><path d="M40 75 L90 40 L120 40 L160 75 M90 40 L70 75 M120 40 L140 30" stroke="#FDFCFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Katana R1-250</h3>
+        <span class="cta-mini">Cotizar</span>
+      </div>
+      <div class="m-card">
+        <span class="brand-tag">DAYUN</span>
+        <span class="style-tag">Urbano</span>
+        <svg class="bike-icon" viewBox="0 0 200 100" fill="none"><circle cx="40" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><circle cx="160" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><path d="M40 75 L90 40 L120 40 L160 75 M90 40 L70 75 M120 40 L140 30" stroke="#FDFCFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Dayun 250-R</h3>
+        <span class="cta-mini">Cotizar</span>
+      </div>
+      <div class="m-card">
+        <span class="brand-tag">KATANA</span>
+        <span class="style-tag">Urbano</span>
+        <svg class="bike-icon" viewBox="0 0 200 100" fill="none"><circle cx="40" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><circle cx="160" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><path d="M40 75 L90 40 L120 40 L160 75 M90 40 L70 75 M120 40 L140 30" stroke="#FDFCFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Katana Nave 150</h3>
+        <span class="cta-mini">Cotizar</span>
+      </div>
+      <div class="m-card">
+        <span class="brand-tag">DAYUN</span>
+        <span class="style-tag">Trabajo</span>
+        <svg class="bike-icon" viewBox="0 0 200 100" fill="none"><circle cx="40" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><circle cx="160" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><path d="M40 75 L90 40 L120 40 L160 75 M90 40 L70 75 M120 40 L140 30" stroke="#FDFCFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Dayun 150-29A</h3>
+        <span class="cta-mini">Cotizar</span>
+      </div>
+      <div class="m-card">
+        <span class="brand-tag">KATANA</span>
+        <span class="style-tag">Deportivo</span>
+        <svg class="bike-icon" viewBox="0 0 200 100" fill="none"><circle cx="40" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><circle cx="160" cy="75" r="20" stroke="#FDFCFA" stroke-width="4"/><path d="M40 75 L90 40 L120 40 L160 75 M90 40 L70 75 M120 40 L140 30" stroke="#FDFCFA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Katana SMX 250</h3>
+        <span class="cta-mini">Cotizar</span>
+      </div>
+    </div>
+    <div class="models-more">
+      <a href="#" class="btn btn-ghost" style="border-color:#383D45; color:#FDFCFA;">Ver catálogo completo</a>
+    </div>
+  </div>
+</section>
+
+<section class="financing" id="financiamiento">
+  <div class="wrap">
+    <div>
+      <h2>Aplica hoy,<br>rueda mañana.</h2>
+      <p class="lead">Financiamiento pensado para el día a día salvadoreño: trámite simple, cuotas accesibles y asesores en cada sucursal.</p>
+      <ul>
+        <li>Aprobación rápida, sin trámites complicados</li>
+        <li>Cuotas adaptadas a tu presupuesto</li>
+        <li>Aplica en línea o en la sucursal más cercana</li>
+      </ul>
+      <a href="#cotizar" class="btn btn-primary">Solicitar financiamiento</a>
+    </div>
+    <div class="financing-panel">
+      <div class="stat"><b>20+</b><span>Sucursales para atenderte</span></div>
+      <div class="stat"><b>2</b><span>Marcas: Katana y Dayun</span></div>
+      <div class="stat"><b>L–V 8–5</b><span>Sábados 8am – 4pm</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section branches" id="sucursales">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Sucursales cerca de ti</h2>
+      <p>Presencia en todo el país, de occidente a oriente.</p>
+    </div>
+    <div class="branch-cols">
+      <div class="branch-col">
+        <h3>San Salvador y alrededores</h3>
+        <ul>
+          <li>El Progreso <a href="tel:25253800">2525-3800</a></li>
+          <li>29 Calle Pte. <a href="tel:22263381">2226-3381</a></li>
+          <li>Venezuela <a href="tel:22214581">2221-4581</a></li>
+          <li>Roosevelt <a href="tel:22606882">2260-6882</a></li>
+          <li>Soyapango <a href="tel:25253887">2525-3887</a></li>
+          <li>Plaza Mundo <a href="tel:25253886">2525-3886</a></li>
+          <li>Apopa <a href="tel:25253885">2525-3885</a></li>
+          <li>Santa Tecla <a href="tel:25253897">2525-3897</a></li>
+        </ul>
+      </div>
+      <div class="branch-col">
+        <h3>Occidente</h3>
+        <ul>
+          <li>Santa Ana <a href="tel:24401234">2440-1234</a></li>
+          <li>Sonsonate <a href="tel:25253888">2525-3888</a></li>
+          <li>Ahuachapán <a href="tel:22253892">2225-3892</a></li>
+          <li>Metapán <a href="tel:25253896">2525-3896</a></li>
+          <li>Acajutla <a href="tel:25253895">2525-3895</a></li>
+          <li>Chalatenango <a href="tel:25253893">2525-3893</a></li>
+          <li>Aguilares <a href="tel:25253890">2525-3890</a></li>
+          <li>Lourdes <a href="tel:25253891">2525-3891</a></li>
+        </ul>
+      </div>
+      <div class="branch-col">
+        <h3>Oriente y paracentral</h3>
+        <ul>
+          <li>San Miguel <a href="tel:26612227">2661-2227</a></li>
+          <li>San Miguel Centro <a href="tel:25253894">2525-3894</a></li>
+          <li>Ruta Militar, S.M. <a href="tel:76004764">7600-4764</a></li>
+          <li>Usulután <a href="tel:25253883">2525-3883</a></li>
+          <li>Zacatecoluca <a href="tel:25253884">2525-3884</a></li>
+          <li>Gotera <a href="tel:25253800">2525-3800</a></li>
+          <li>La Unión <a href="tel:77418648">7741-8648</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="foot-logo">MOTO<span>CITY</span></a>
+        <p>Motocicletas Katana y Dayun, financiamiento, repuestos y talleres autorizados en toda El Salvador.</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#modelos">Motocicletas</a></li>
+          <li><a href="#financiamiento">Financiamiento</a></li>
+          <li><a href="#repuestos">Repuestos</a></li>
+          <li><a href="#talleres">Talleres</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Nuestra empresa</a></li>
+          <li><a href="#sucursales">Sucursales</a></li>
+          <li><a href="#">Únete al equipo</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>PBX <a href="tel:25253800">2525-3800</a></li>
+          <li><a href="https://wa.me/50325253800">WhatsApp: 2525-3800</a></li>
+          <li><a href="mailto:ventas@motocity.com.sv">ventas@motocity.com.sv</a></li>
+          <li>L–V 8:00–17:00 · Sáb 8:00–16:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Motocity El Salvador. Todos los derechos reservados.</span>
+      <div class="foot-social">
+        <a href="https://www.facebook.com/motocitysv">Facebook</a>
+        <a href="https://www.instagram.com/motocitysv/?hl=es-la">Instagram</a>
+        <a href="https://www.youtube.com/channel/UCh-fHPLs50VSjh8czmgwCXg">YouTube</a>
+        <a href="https://www.linkedin.com/company/67333755/">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/50325253800" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.1-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" stroke="white" stroke-width="0" fill="white"/><path d="M17.3 14.4c-.3-.15-1.7-.85-1.95-.95-.26-.1-.45-.15-.65.15-.2.3-.75.95-.9 1.15-.17.2-.33.22-.62.08-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.34.45-.5.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5-.17 0-.37-.02-.56-.02-.2 0-.53.08-.8.38-.28.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.56.72.3 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.7-.7 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z" fill="#25D366"/></svg>
+</a>
+
+</body>
+</html>

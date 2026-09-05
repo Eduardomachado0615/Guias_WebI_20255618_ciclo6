@@ -1,120 +1,151 @@
-/* Configuración Retro / Cómic */
+
+
 body {
-    background-color: #fffde7;
-    color: #1a1a1a;
-    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
     margin: 0;
-    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #101010;
+    color: white;
 }
 
-/* Encabezado */
-#main-header {
-    background-color: #ff5252;
-    border: 4px solid #000000;
-    box-shadow: 6px 6px 0px #000000;
+
+/* ENCABEZADO */
+
+header {
+    background-image: url("https://static.wikia.nocookie.net/breakingbad/images/7/78/Logo_breaking_bad.png/revision/latest/scale-to-width-down/1200?cb=20180801024750&path-prefix=es");
+  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     text-align: center;
+    padding: 155px;
+    color: white;
+}
+
+
+header h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+header p {
+    font-size: 22px;
+}
+
+
+/* MENÚ */
+
+nav {
+    background-color: #222222;
+    text-align: center;
+    padding: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #80c41c;
+}
+
+
+/* SECCIONES */
+
+.seccion {
+    width: 80%;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+}
+
+.seccion h2 {
+    color: #80c41c;
+    font-size: 30px;
+}
+
+
+/* IMÁGENES */
+
+.imagen-principal {
+    width: 550px;
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.imagen-secundaria {
+    width: 400px;
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+
+/* PERSONAJES */
+
+.personaje {
+    background-color: #292929;
     padding: 15px;
-    margin-bottom: 30px;
+    margin: 15px 0;
+    border-left: 5px solid #80c41c;
 }
 
-.comic-title {
-    color: #ffeb3b;
-    font-size: 3rem;
-    margin: 0;
-    text-shadow: 3px 3px 0px #000000;
-    letter-spacing: 2px;
+.personaje h3 {
+    color: #9ed83c;
 }
 
-.tagline {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-top: 5px;
+
+/* LISTA DE TEMPORADAS */
+
+.lista-temporadas {
+    line-height: 2;
 }
 
-/* Estructura con Sidebar y Contenido */
-.main-layout {
-    display: flex;
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
+.lista-temporadas li {
+    color: #dddddd;
 }
 
-#sidebar {
-    flex: 1;
+
+/* OPINIÓN */
+
+.opinion {
+    width: 80%;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #17351a;
+    border-radius: 10px;
 }
 
-#content {
-    flex: 2;
+.opinion h2 {
+    color: #9ed83c;
 }
 
-/* Tarjetas estilo Cómic */
-.comic-box {
-    background-color: #ffffff;
-    border: 3px solid #000000;
-    box-shadow: 5px 5px 0px #000000;
-    padding: 20px;
-    margin-bottom: 25px;
-}
-
-.section-title {
-    background-color: #00e676;
-    color: #000000;
-    border: 2px solid #000000;
-    display: inline-block;
-    padding: 5px 15px;
-    margin-top: 0;
-    text-transform: uppercase;
-}
-
-/* Cita */
-.quote {
-    background-color: #ffe082;
-    border-left: 5px solid #ff9800;
-    padding: 10px;
-    font-style: italic;
+.destacado {
+    color: #80c41c;
     font-weight: bold;
 }
 
-/* Lista del lateral */
-.info-list {
-    list-style-type: square;
-    padding-left: 20px;
-}
 
-.info-list li {
-    margin-bottom: 10px;
-}
+/* PIE DE PÁGINA */
 
-/* Personajes */
-.cards-grid {
-    display: flex;
-    gap: 15px;
-}
-
-.character-card {
-    background-color: #e1f5fe;
-    border: 2px solid #000000;
-    padding: 10px;
+footer {
+    background-color: #1f5f25;
     text-align: center;
-    flex: 1;
+    padding: 25px;
+    margin-top: 40px;
 }
 
-.avatar {
-    width: 100px;
-    height: 100px;
-    border: 2px solid #000000;
-    border-radius: 8px;
+footer a {
+    color: white;
+    text-decoration: none;
 }
 
-/* Pie de página */
-#main-footer {
-    background-color: #7c4dff;
-    color: #ffffff;
-    border: 3px solid #000000;
-    box-shadow: 5px 5px 0px #000000;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-    font-weight: bold;
+footer a:hover {
+    color: #80c41c;
 }
