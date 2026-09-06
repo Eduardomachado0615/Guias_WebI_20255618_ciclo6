@@ -12,10 +12,9 @@ body {
 
 header {
     background-image: url("https://static.wikia.nocookie.net/breakingbad/images/7/78/Logo_breaking_bad.png/revision/latest/scale-to-width-down/1200?cb=20180801024750&path-prefix=es");
-  background-size: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     text-align: center;
     padding: 155px;
     color: white;
@@ -111,8 +110,6 @@ nav a:hover {
     color: #dddddd;
 }
 
-
-/* OPINIÓN */
 
 .opinion {
     width: 80%;

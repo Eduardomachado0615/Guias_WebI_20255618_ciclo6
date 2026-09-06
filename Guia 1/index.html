@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Guías - Desarrollo Web I</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            margin-top: 40px;
+        }
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        details {
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        summary {
+            padding: 15px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            color: #3c4043;
+            transition: background-color 0.3s;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::before {
+            content: "📁";
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        summary:hover {
+            background-color: #e8eaed;
+        }
+        details[open] summary {
+            background-color: #1a73e8;
+            color: white;
+            border-bottom: 1px solid #dadce0;
+        }
+        details[open] summary::before {
+            content: "📂";
+        }
+        
+        .ejercicios-list {
+            list-style: none;
+            padding: 15px 20px;
+            margin: 0;
+            background-color: #ffffff;
+        }
+        .ejercicios-list li {
+            margin: 10px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+        .ejercicios-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .ejercicios-list a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #1a73e8;
+            padding: 8px 10px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .ejercicios-list a::before {
+            content: "📄";
+            margin-right: 10px;
+        }
+        .ejercicios-list a:hover {
+            background-color: #f1f3f4;
+            color: #174ea6;
+            transform: translateX(5px);
+        }
+        .css-note {
+            font-size: 12px;
+            color: #5f6368;
+            margin-left: 40px;
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #5f6368;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Índice de Guías - Ciclo 6</h1>
+        
+        <!-- GUÍA 1 -->
+        <details open>
+            <summary>Guía 1</summary>
+            <ul class="ejercicios-list">
+                <!-- Enlaces corregidos: ahora apuntan directo al archivo en la raíz -->
+                <li>
+                    <a href="estilos_embebidos.html" target="_blank">Ejercicio 1</a>
+                    <span class="css-note">🎨 CSS conectado: estilo1.css</span>
+                </li>
+                <li>
+                    <a href="ejemplo2.html" target="_blank">Ejercicio 2</a>
+                    <span class="css-note">🎨 CSS conectado: estilo2.css</span>
+                </li>
+                <li>
+                    <a href="paises.html" target="_blank">Ejercicio 3</a>
+                    <span class="css-note">🎨 CSS conectado: estilos.css</span>
+                </li>
+                <li>
+                    <a href="BreakingBad.html" target="_blank">Ejercicio 4</a>
+                    <span class="css-note">🎨 CSS conectado: estilo3.css</span>
+                </li>
+                <li>
+                    <a href="PromptA.html" target="_blank">Reto IA - Prompt A</a>
+                </li>
+                <li>
+                    <a href="PromptB.html" target="_blank">Reto IA - Prompt B</a>
+                </li>
+            </ul>
+        </details>
+
+        <!-- ESPACIO PARA FUTURAS GUÍAS -->
+        <details>
+            <summary>Guía 2</summary>
+            <ul class="ejercicios-list">
+                <li><a href="#">Próximamente...</a></li>
+            </ul>
+        </details>
+
+        <div class="footer">
+            Repositorio: Eduardomachado0615 | 20255618
+        </div>
+    </div>
+</body>
+</html>
