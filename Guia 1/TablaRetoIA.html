@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenidos de la Guía 1 - Desarrollo Web I</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 900px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        .content-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 14px;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+        .content-table thead tr {
+            background-color: #1a73e8;
+            color: #ffffff;
+            text-align: left;
+        }
+        .content-table th {
+            padding: 14px 18px;
+            font-weight: 600;
+        }
+        .content-table td {
+            padding: 14px 18px;
+            vertical-align: top;
+            border-bottom: 1px solid #dddddd;
+            color: #495057;
+            line-height: 1.5;
+        }
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f8f9fa;
+        }
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #1a73e8;
+        }
+        .content-table strong {
+            color: #1a73e8;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #1a73e8;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .back-link:hover {
+            background-color: #1557b0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #5f6368;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contenidos de la Guía 1</h1>
+        
+        <div class="table-container">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Contenido ya estudiado en el curso</th>
+                        <th>Contenido nuevo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Listas HTML (&lt;ul&gt; y &lt;li&gt;):</strong> Utilizadas para estructurar la barra de navegación y las sucursales del pie de página.</td>
+                        <td><strong>Variables CSS (:root y var()):</strong> Definir una paleta de colores global reutilizable (como el color corporativo --motocity-red), lo que permite modificar la identidad visual del sitio completo desde una sola línea de código.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modelo de caja (margin, padding, width, height, border):</strong> Empleado para dimensionar, separar y enmarcar todos los contenedores y tarjetas del sitio.</td>
+                        <td><strong>Flexbox (display: flex):</strong> Alinear y distribuir de manera inteligente los elementos en una sola dirección (por ejemplo, acomodar el logo y los enlaces del menú horizontalmente).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ajuste de tamaño (box-sizing: border-box):</strong> Aplicado universalmente para asegurar que los rellenos y bordes se incluyan dentro de la anchura total establecida.</td>
+                        <td><strong>CSS Grid (display: grid):</strong> Crear cuadrículas bidimensionales automatizadas (auto-fit y minmax) para que las tarjetas de las motocicletas se reacomoden perfectamente según el tamaño de la pantalla.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Selectores avanzados y descendientes:</strong> Utilizados para apuntar a elementos específicos que se encuentran dentro de contenedores anidados.</td>
+                        <td><strong>Posicionamiento Fijo (position: fixed):</strong> Mantener la barra de navegación superior estática y anclada en la parte superior de la pantalla mientras el usuario realiza scroll hacia abajo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pseudo-clases de interacción (:hover):</strong> Implementadas en los botones y tarjetas para alterar visualmente los estilos cuando el usuario pasa el cursor sobre ellos.</td>
+                        <td><strong>Diseño Responsivo (@media queries):</strong> Detectar las dimensiones de la pantalla del usuario (como en dispositivos móviles) para adaptar y reestructurar las reglas de diseño automáticamente.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estética y efectos CSS3 (border-radius y box-shadow):</strong> Utilizados para redondear las esquinas de los contenedores y darles un efecto de relieve o profundidad.</td>
+                        <td><strong>Transiciones y Transformaciones (transition y transform):</strong> Generar animaciones fluidas y suaves (como el aumento de tamaño o la elevación) cuando ocurren interacciones en los elementos.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><strong>Filtros visuales y gradientes (backdrop-filter y linear-gradient):</strong> Aplicar efectos gráficos modernos, como el desenfoque estilo vidrio esmerilado en el menú y capas oscuras translúcidas sobre las imágenes de fondo.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><strong>JavaScript Básico (&lt;script&gt; y addEventListener):</strong> Proveer interactividad dinámica al sitio para que, al presionar el botón de menú móvil en un teléfono, la lista de navegación aparezca o desaparezca correctamente.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a href="../index.html" class="back-link">← Volver al Índice Principal</a>
+
+        <div class="footer">
+            Repositorio: Eduardomachado0615 | 20255618
+        </div>
+    </div>
+</body>
+</html>
