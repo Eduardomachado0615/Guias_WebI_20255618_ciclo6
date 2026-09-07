@@ -34,14 +34,14 @@
             font-size: 24px;
         }
         
-        /* Estilos para el contenedor del video */
+        /* Estilos para el contenedor del video (Ajustado para estar adentro) */
         .video-container {
             margin: 20px;
             text-align: center;
         }
         .video-container iframe {
             width: 100%;
-            aspect-ratio: 16/9; 
+            aspect-ratio: 16/9; /* Mantiene la proporción del video */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border: none;
@@ -141,16 +141,12 @@
         <details open>
             <summary>Guía 1</summary>
             
-            <!-- SECCIÓN DE VIDEO -->
+            <!-- SECCIÓN DE VIDEO ADENTRO DE GUÍA 1 -->
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/TLc38kULDeU" title="Video de presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <ul class="ejercicios-list">
-                <!-- ENLACE A LA TABLA DE CONTENIDOS (contenido.html) -->
-                <li>
-                    <a href="TablaRetoIA.html" target="_blank">TablaRetoIA (Tabla)</a>
-                </li>
                 <li>
                     <a href="estilos_embebidos.html" target="_blank">Ejercicio 1</a>
                     <span class="css-note">🎨 CSS conectado: estilo1.css</span>
