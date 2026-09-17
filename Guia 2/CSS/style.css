@@ -1,0 +1,24 @@
+:root {
+--color-fondo: #05070a;
+--color-superficie: #0f1720;
+--color-superficie-alt: #141d28;
+--color-dorado: #d1a954;
+--color-texto: #f2f0ea;
+--color-texto-tenue: #aab2bf;
+--color-borde: rgba(255, 255, 255, 0.08);
+--fuente-titulos: Georgia, "Times New Roman", serif;
+--fuente-texto: "Segoe UI", system-ui, -apple-system, Helvetica,
+Arial, sans-serif;
+}
+* {
+box-sizing: border-box;
+}
+html {
+font-size: 20px;
+}
+body {
+margin: 0;
+background-color: var(--color-fondo);
+color: var(--color-texto);
+font-family: var(--fuente-texto);
+}
