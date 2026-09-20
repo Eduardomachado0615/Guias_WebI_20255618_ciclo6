@@ -1,0 +1,524 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #202020;
+    color: #FFFFFF;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   NAVEGACIÓN
+========================================= */
+
+header {
+    background-color: #202020;
+    width: 100%;
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 24px 0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #FFFFFF;
+}
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FFC000;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.btn {
+    display: inline-block;
+
+    background-color: #FFC000;
+    color: #202020;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    padding: 16px 24px;
+
+    border: none;
+    border-radius: 0;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FFFFFF;
+    color: #202020;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(32, 32, 32, 0.55),
+            rgba(32, 32, 32, 0.75)
+        ),
+        url("../img/moto1.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.hero-subtitle {
+    color: #FFC000;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 90px);
+    line-height: 0.95;
+
+    font-weight: 900;
+
+    max-width: 1000px;
+
+    margin-bottom: 32px;
+}
+
+.hero-description {
+    max-width: 550px;
+
+    font-size: 20px;
+
+    margin-bottom: 32px;
+
+    color: #F5F5F5;
+}
+
+
+/* =========================================
+   TÍTULOS DE SECCIÓN
+========================================= */
+
+.section-title {
+    width: 90%;
+    max-width: 1400px;
+
+    margin: auto;
+    margin-bottom: 48px;
+}
+
+.section-title p {
+    color: #FFC000;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+}
+
+.section-title h2 {
+    font-size: clamp(32px, 5vw, 56px);
+
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   MOTOCICLETAS DESTACADAS
+========================================= */
+
+.featured {
+    background-color: #F5F5F5;
+    color: #202020;
+
+    padding: 100px 0;
+}
+
+.moto-container {
+    width: 90%;
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+
+/* TARJETA */
+
+.moto-card {
+    background-color: #FFFFFF;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+    animation: aparecer 0.8s ease forwards;
+}
+
+.moto-card:hover {
+    transform: translateY(-8px);
+}
+
+
+/* IMAGEN */
+
+.moto-card img {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.moto-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* INFORMACIÓN */
+
+.moto-info {
+    padding: 32px;
+}
+
+.moto-info h3 {
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+.moto-info p {
+    color: #555555;
+
+    margin-bottom: 8px;
+}
+
+.moto-info .price {
+    color: #202020;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================================
+   BENEFICIOS
+========================================= */
+
+.benefits {
+    background-color: #202020;
+
+    padding: 100px 0;
+}
+
+.benefits-container {
+    width: 90%;
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.benefit {
+    border-top: 2px solid #FFC000;
+
+    padding-top: 24px;
+}
+
+.benefit h3 {
+    color: #FFFFFF;
+
+    font-size: 24px;
+
+    margin-bottom: 16px;
+}
+
+.benefit p {
+    color: #F5F5F5;
+
+    max-width: 350px;
+}
+
+
+/* =========================================
+   LLAMADA A LA ACCIÓN
+========================================= */
+
+.cta {
+    background-color: #FFC000;
+
+    color: #202020;
+
+    padding: 100px 20px;
+
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.cta h2 {
+    font-size: clamp(35px, 5vw, 65px);
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 20px;
+
+    margin-bottom: 32px;
+}
+
+.cta .btn {
+    background-color: #202020;
+    color: #FFFFFF;
+}
+
+.cta .btn:hover {
+    background-color: #FFFFFF;
+    color: #202020;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background-color: #151515;
+
+    padding: 60px 20px;
+
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.footer-content h2 {
+    font-size: 30px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+}
+
+.footer-content > p {
+    color: #F5F5F5;
+
+    margin-bottom: 24px;
+}
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 32px;
+
+    margin-bottom: 32px;
+}
+
+.footer-links a {
+    color: #FFFFFF;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FFC000;
+}
+
+.copyright {
+    font-size: 13px;
+
+    color: #777777 !important;
+
+    margin-bottom: 0 !important;
+}
+
+
+/* =========================================
+   ANIMACIÓN DE APARICIÓN
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .moto-container,
+    .benefits-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .moto-container,
+    .benefits-container {
+        grid-template-columns: 1fr;
+    }
+
+    .featured,
+    .benefits,
+    .cta {
+        padding: 70px 0;
+    }
+
+    .footer-links {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+}
+

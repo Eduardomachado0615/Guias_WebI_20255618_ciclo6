@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MotoCity | Contacto y Cotización</title>
+
+    <!-- Archivo CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================== NAVEGACIÓN ==================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MOTOCITY
+            </div>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="motocicletas.html">
+                        Motocicletas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ==================== CONTENIDO PRINCIPAL ==================== -->
+
+    <main>
+
+
+        <!-- ==================== ENCABEZADO ==================== -->
+
+        <section class="benefits">
+
+            <div class="section-title">
+
+                <p>
+                    MOTOCITY EL SALVADOR
+                </p>
+
+                <h1>
+                    COTIZA TU PRÓXIMA
+                    MOTOCICLETA
+                </h1>
+
+                <p>
+                    Déjanos tus datos y nos pondremos
+                    en contacto contigo.
+                </p>
+
+            </div>
+
+
+
+            <!-- ==================== CONTACTO + FORMULARIO ==================== -->
+
+            <div class="contact-container">
+
+
+                <!-- INFORMACIÓN DE CONTACTO -->
+
+                <div class="contact-info">
+
+                    <h2>
+                        ¿TENÉS ALGUNA MOTO EN MENTE?
+                    </h2>
+
+                    <p>
+                        Estamos aquí para ayudarte a encontrar
+                        la motocicleta que mejor se adapte a vos.
+                    </p>
+
+
+                    <div class="contact-item">
+
+                        <h3>
+                            UBICACIÓN
+                        </h3>
+
+                        <p>
+                            El Salvador
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <h3>
+                            TELÉFONO
+                        </h3>
+
+                        <p>
+                            +503 0000-0000
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <h3>
+                            CORREO
+                        </h3>
+
+                        <p>
+                            contacto@motocity.com.sv
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================== FORMULARIO ==================== -->
+
+                <div class="contact-form">
+
+                    <form id="cotizacionForm">
+
+
+                        <!-- NOMBRE -->
+
+                        <div class="form-group">
+
+                            <label for="nombre">
+                                Nombre completo
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                placeholder="Escribe tu nombre"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- CORREO -->
+
+                        <div class="form-group">
+
+                            <label for="correo">
+                                Correo electrónico
+                            </label>
+
+                            <input
+                                type="email"
+                                id="correo"
+                                name="correo"
+                                placeholder="ejemplo@correo.com"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- TELÉFONO -->
+
+                        <div class="form-group">
+
+                            <label for="telefono">
+                                Número de teléfono
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="telefono"
+                                name="telefono"
+                                placeholder="0000-0000"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- MOTOCICLETA -->
+
+                        <div class="form-group">
+
+                            <label for="motocicleta">
+                                Motocicleta de interés
+                            </label>
+
+                            <select
+                                id="motocicleta"
+                                name="motocicleta"
+                                required
+                            >
+
+                                <option value="">
+                                    Selecciona una motocicleta
+                                </option>
+
+                                <option value="deportiva">
+                                    Motocicleta Deportiva
+                                </option>
+
+                                <option value="urbana">
+                                    Motocicleta Urbana
+                                </option>
+
+                                <option value="aventura">
+                                    Motocicleta Aventura
+                                </option>
+
+                                <option value="clasica">
+                                    Motocicleta Clásica
+                                </option>
+
+                                <option value="sport">
+                                    Sport 250
+                                </option>
+
+                                <option value="touring">
+                                    Touring 300
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- MENSAJE -->
+
+                        <div class="form-group">
+
+                            <label for="mensaje">
+                                Mensaje
+                            </label>
+
+                            <textarea
+                                id="mensaje"
+                                name="mensaje"
+                                rows="5"
+                                placeholder="Cuéntanos qué motocicleta estás buscando..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+
+                        <!-- BOTÓN -->
+
+                        <button
+                            type="submit"
+                            class="btn"
+                        >
+                            ENVIAR COTIZACIÓN
+                        </button>
+
+
+                        <!-- MENSAJE DE CONFIRMACIÓN -->
+
+                        <p
+                            id="mensajeConfirmacion"
+                            class="confirmation"
+                        ></p>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== LLAMADA A LA ACCIÓN ==================== -->
+
+        <section class="cta">
+
+            <div class="cta-content">
+
+                <h2>
+                    ENCONTRÁ TU PRÓXIMA MOTO
+                </h2>
+
+                <p>
+                    Conoce nuestro catálogo y descubre
+                    el modelo ideal para vos.
+                </p>
+
+                <a
+                    href="motocicletas.html"
+                    class="btn"
+                >
+                    VER MOTOCICLETAS
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                MOTOCITY
+            </h2>
+
+            <p>
+                Motocicletas para vivir cada camino.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="motocicletas.html">
+                    Motocicletas
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 MotoCity El Salvador.
+                Todos los derechos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
