@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +17,17 @@
             align-items: flex-start;
             min-height: 100vh;
         }
+
         .container {
             background: #ffffff;
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
             margin-top: 40px;
         }
+
         h1 {
             color: #1a73e8;
             text-align: center;
@@ -33,16 +36,17 @@
             margin-bottom: 20px;
             font-size: 24px;
         }
-        
+
         .video-container {
             margin: 20px;
             text-align: center;
         }
+
         .video-container iframe {
             width: 100%;
             aspect-ratio: 16/9;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: none;
         }
 
@@ -53,6 +57,7 @@
             margin-bottom: 15px;
             overflow: hidden;
         }
+
         summary {
             padding: 15px 20px;
             font-weight: 600;
@@ -63,41 +68,49 @@
             color: #3c4043;
             transition: background-color 0.3s;
         }
+
         summary::-webkit-details-marker {
             display: none;
         }
+
         summary::before {
             content: "📁";
             margin-right: 15px;
             font-size: 20px;
         }
+
         summary:hover {
             background-color: #e8eaed;
         }
+
         details[open] summary {
             background-color: #1a73e8;
             color: white;
             border-bottom: 1px solid #dadce0;
         }
+
         details[open] summary::before {
             content: "📂";
         }
-        
+
         .ejercicios-list {
             list-style: none;
             padding: 0 20px 15px 20px;
             margin: 0;
             background-color: #ffffff;
         }
+
         .ejercicios-list li {
             margin: 10px 0;
             padding-bottom: 10px;
             border-bottom: 1px dashed #eee;
         }
+
         .ejercicios-list li:last-child {
             border-bottom: none;
             padding-bottom: 0;
         }
+
         .ejercicios-list a {
             display: flex;
             align-items: center;
@@ -108,15 +121,18 @@
             transition: all 0.2s ease;
             font-weight: 500;
         }
+
         .ejercicios-list a::before {
             content: "📄";
             margin-right: 10px;
         }
+
         .ejercicios-list a:hover {
             background-color: #f1f3f4;
             color: #174ea6;
             transform: translateX(5px);
         }
+
         .css-note {
             font-size: 12px;
             color: #5f6368;
@@ -132,16 +148,19 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Índice de Guías - Ciclo 6</h1>
-        
+
         <!-- GUÍA 1 -->
         <details open>
             <summary>Guía 1</summary>
-            
+
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/TLc38kULDeU" title="Video de presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/TLc38kULDeU" title="Video de presentación"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
 
             <ul class="ejercicios-list">
@@ -170,32 +189,27 @@
             </ul>
         </details>
 
-<!-- GUÍA 2 -->
-<details>
-    <summary>Guía 2</summary>
-    <ul class="ejercicios-list">
-        <li>
-            <a href="Guia 2/pelicula.html" target="_blank">Ejercicio 1</a>
-            <span class="CSS-note">🎨 CSS conectado: style.css</span>
-        </li>
-        <li>
-            <a href="Guia 2/tablero.html" target="_blank">Ejercicio 2</a>
-            <span class="CSS-note">🎨 CSS conectado: estilo_tablero.css</span>
-        </li>
-        <li>
-            <a href="/Guia 2/mi biografia.html" target="_blank">Ejercicio 3</a>
-            <span class="CSS-note">🎨 CSS conectado: bio_style.css </span>
-        </li>
-        <li>
-            <a href="/Guia 2/index.html" target="_blank">Reto IA</a>
-            <span class="CSS-note"> CSS conectado: estilo.css </span>
-        </li>
-    </ul>
-</details>
- 
-<div class="footer">
+        <!-- GUÍA 2 -->
+        <details>
+            <summary>Guía 2</summary>
+            <ul class="ejercicios-list">
+                <li> <a href="Guia 2/pelicula.html" target="_blank">Ejercicio 1</a> <span class="CSS-note">🎨 CSS
+                        conectado: style.css</span> </li>
+                <li> <a href="Guia 2/tablero.html" target="_blank">Ejercicio 2</a> <span class="CSS-note">🎨 CSS
+                        conectado: estilo_tablero.css</span> </li>
+                <li> <a href="Guia 2/mi biografia.html" target="_blank">Ejercicio 3</a> <span class="CSS-note">🎨 CSS
+                        conectado: bio_style.css</span> </li>
+                <li> <a href="Guia 2/index.html" target="_blank">Reto IA</a> <span class="CSS-note">CSS conectado:
+                        estilo.css</span> </li>
+                <li> <a href="MotoCity/index.html" target="_blank">Proyecto MotoCity</a> <span class="CSS-note">🏍️
+                        Sitio web de motocicletas - 3 páginas</span> </li>
+            </ul>
+        </details>
+
+        <div class="footer">
             Repositorio: Eduardomachado0615 | 20255618
         </div>
     </div>
 </body>
+
 </html>
