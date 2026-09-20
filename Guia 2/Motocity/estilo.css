@@ -1,6 +1,4 @@
-/* =========================================
-   CONFIGURACIÓN GENERAL
-========================================= */
+
 
 * {
     margin: 0;
@@ -113,10 +111,8 @@ header {
     align-items: center;
 
     background:
-        linear-gradient(
-            rgba(32, 32, 32, 0.55),
-            rgba(32, 32, 32, 0.75)
-        ),
+        linear-gradient(rgba(32, 32, 32, 0.55),
+            rgba(32, 32, 32, 0.75)),
         url("../img/moto1.jpg");
 
     background-size: cover;
@@ -401,7 +397,7 @@ footer {
     margin-bottom: 10px;
 }
 
-.footer-content > p {
+.footer-content>p {
     color: #F5F5F5;
 
     margin-bottom: 24px;
@@ -521,4 +517,3 @@ footer {
     }
 
 }
-
