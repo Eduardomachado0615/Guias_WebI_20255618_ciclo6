@@ -1,0 +1,155 @@
+:root {
+--color-texto: #342e29;
+--color-fondo: #f5efe6;
+--color-principal: #293e36;
+--color-acento: #93472f;
+--color-superficie: #ffffff;
+--color-contraste: #ead1ad;
+--color-borde: #ded3c4;
+--color-fondo-secundario: #eadfce;
+--color-capa-inicial: rgba(25, 35, 29, 0.85);
+--color-capa-final: rgba(25, 35, 29, 0.65);
+--color-sombra: rgba(52, 46, 41, 0.10);
+}
+
+body{
+    margin:0;
+    font-family: "Segoe UI", Arrial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+img{
+    max-width: 100%;
+}
+
+h1,h2,h3{
+    line-height: 1.2;
+}
+
+h2,h3{
+    color:var(--color-principal);
+}
+
+a{
+    color:var(--color-acento);
+}
+
+a:hover, a:focus-visible{
+    color: var(--color-principal);
+}
+
+.encabezado.principal{
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+}
+
+.marca{
+    color: var(--color-superficie);
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.barra-navegacion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+    color: var(--color-contraste);
+}
+
+.presentacion {
+padding: 4rem 0;
+color: var(--color-superficie);
+background-color: var(--color-principal);
+background-image:
+linear-gradient(
+to right,
+var(--color-capa-inicial),
+var(--color-capa-final)
+),
+url("../img/gran-muralla-china.jpg");
+background-size: cover;
+background-position: center;
+}
+
+.presentacion h1 {
+    max-width: 760px;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.presentacion p {
+    max-width: 640px;
+}
+
+.sobretitulo {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-acento);
+}
+
+.presentacion .sobretitulo {
+    color: var(--color-contraste);
+}
+
+.boton-principal {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    color: #ffffff;
+    background-color: var(--color-acento);
+    border-radius: 0.3rem;
+    text-decoration: none;
+}
+
+.boton-principal:hover,
+.boton-principal:focus-visible {
+    color: var(--color-principal);
+    background-color: var(--color-contraste);
+}
+
+.seccion-maravillas {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.titulo-seccion {
+    max-width: 680px;
+    margin-bottom: 2rem;
+}
+
+.titulo-seccion h2 {
+    margin: 0 0 0.75rem 0;
+    font-size: 2rem;
+}
