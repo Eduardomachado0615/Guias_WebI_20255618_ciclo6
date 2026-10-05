@@ -1,64 +1,64 @@
 :root {
---color-texto: #342e29;
---color-fondo: #f5efe6;
---color-principal: #293e36;
---color-acento: #93472f;
---color-superficie: #ffffff;
---color-contraste: #ead1ad;
---color-borde: #ded3c4;
---color-fondo-secundario: #eadfce;
---color-capa-inicial: rgba(25, 35, 29, 0.85);
---color-capa-final: rgba(25, 35, 29, 0.65);
---color-sombra: rgba(52, 46, 41, 0.10);
+    --color-texto: #342e29;
+    --color-fondo: #f5efe6;
+    --color-principal: #293e36;
+    --color-acento: #93472f;
+    --color-superficie: #ffffff;
+    --color-contraste: #ead1ad;
+    --color-borde: #ded3c4;
+    --color-fondo-secundario: #eadfce;
+    --color-capa-inicial: rgba(25, 35, 29, 0.85);
+    --color-capa-final: rgba(25, 35, 29, 0.65);
+    --color-sombra: rgba(52, 46, 41, 0.10);
 }
 
-body{
-    margin:0;
-    font-family: "Segoe UI", Arrial, sans-serif;
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
     line-height: 1.6;
     color: var(--color-texto);
     background-color: var(--color-fondo);
 }
 
-.contenedor{
+.contenedor {
     width: 90%;
     max-width: 1140px;
     margin: 0 auto;
 }
 
-img{
+img {
     max-width: 100%;
 }
 
-h1,h2,h3{
+h1, h2, h3 {
     line-height: 1.2;
 }
 
-h2,h3{
-    color:var(--color-principal);
-}
-
-a{
-    color:var(--color-acento);
-}
-
-a:hover, a:focus-visible{
+h2, h3 {
     color: var(--color-principal);
 }
 
-.encabezado.principal{
+a {
+    color: var(--color-acento);
+}
+
+a:hover, a:focus-visible {
+    color: var(--color-principal);
+}
+
+.encabezado-principal {
     color: var(--color-superficie);
     background-color: var(--color-principal);
 }
 
-.marca{
+.marca {
     color: var(--color-superficie);
     font-size: 1.15rem;
     font-weight: bold;
     text-decoration: none;
 }
 
-.barra-navegacion{
+.barra-navegacion {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,18 +88,18 @@ a:hover, a:focus-visible{
 }
 
 .presentacion {
-padding: 4rem 0;
-color: var(--color-superficie);
-background-color: var(--color-principal);
-background-image:
-linear-gradient(
-to right,
-var(--color-capa-inicial),
-var(--color-capa-final)
-),
-url("../img/gran-muralla-china.jpg");
-background-size: cover;
-background-position: center;
+    padding: 4rem 0;
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+    background-image:
+        linear-gradient(
+            to right,
+            var(--color-capa-inicial),
+            var(--color-capa-final)
+        ),
+        url("../img/gran-muralla-china.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 .presentacion h1 {
@@ -152,4 +152,184 @@ background-position: center;
 .titulo-seccion h2 {
     margin: 0 0 0.75rem 0;
     font-size: 2rem;
+}
+
+.maravillas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+/*Visualice el resultado.
+a) ¿Cuántas filas intenta formar Flexbox? 
+formará tantas filas como sean necesarias de manera automática,
+distribuyendo las tarjetas según el espacio disponible en la pantalla.
+
+b) ¿Qué ocurre con el ancho de las tarjetas?
+mantendran una proporción visual equilibrada sin deformar su contenido principal.
+c) ¿El contenido permanece cómodo de leer?
+Sí.
+*/ 
+/*Observe el crecimiento de la última tarjeta. Amplíe la ventana hasta que la última fila quede
+incompleta. Observe el ancho de la última tarjeta.
+a) ¿Por qué crece más que las tarjetas de una fila completa?
+porque al quedar incompleta la ultima fila la propiedad toma todo el espacio libre sobrante 
+b) چه valor de flex permite ese crecimiento?
+un valor mayor a 0
+c) ¿Resulta visualmente conveniente que ocupe todo el espacio?
+no es convniente ya que rompe la uniformidad visual y la simetria de la pagina */
+.maravilla img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.maravilla:nth-last-child(1) {
+    justify-self: center;
+    width: 100%;
+    max-width: 380px;
+}
+.maravilla:nth-last-child(1) .maravilla-imagen img {
+    object-position: 50% 30%;
+}
+.maravilla img {
+display: block;
+width: 100%;
+height: 220px;
+}
+.maravilla-imagen {
+    position: relative;
+    height: 220px; 
+}
+.maravilla-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción de la foto recortando los excesos sin deformarla */
+    object-position: center center;
+}
+.maravilla-contenido {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+.maravilla-contenido a {
+    font-weight: bold;
+    margin-top: auto;
+    align-self: flex-start;
+}
+.maravilla-contenido h3 {
+    font-size: 1.35rem;
+    margin: 0.25rem 0 0.75rem 0;
+}
+.ubicacion {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-acento);
+}
+
+.maravilla-contenido > * {
+    flex-grow: 1;
+}
+
+
+/*Observe las siete fotografías. Preste especial atención a Petra.
+a) ¿Mantienen su proporción?
+no, las imagenes pierden por completo su relacion de aspecto original
+b) چه diferencia se observa entre la fotografía vertical y las horizontales?
+Las fotografías horizontales sufren una deformación leve y La fotografía vertical (como Petra) experimenta una distorsión extrema y evidente.
+
+/*Compare ambos resultados y conserve cover. Explique qué parte del contenido puede perderse al
+utilizar este valor. 
+el valor contain ajusta al completo la imagen dentro del contenedor y cover escala y recorta la imagen para que cubra todo el espacio 
+y se pierden los bordes exteriores.*/
+
+
+/*Explique qué espacio absorbe el margen automático.
+El margen superior automático absorbe todo el espacio vertical sobrante que queda disponible dentro de la tarjeta*/
+
+/* Visualice el resultado.
+a) ¿En qué dirección se desplazó la tarjeta? La tarjeta se desplazó 50 píxeles hacia la derecha
+b) ¿Desde qué posición se calcula el desplazamiento? Se calcula desde su posición original
+c) ¿Las demás tarjetas ocuparon su posición original? Sí. Con position: relative, el espacio original que ocupaba la tarjeta se sigue reservando en el documento
+d) ¿La tarjeta desplazada puede superponerse con otras? Sí. Gracias a la propiedad z-index: 2; combinada con el posicionamiento relativo*/
+
+/*28. Compruebe el efecto de las coordenadas. Cambie temporalmente left: 50px por right: 50px.
+a) ¿La tarjeta se desplaza hacia la derecha o hacia la izquierda? A la izquierda 
+b) ¿Por qué una coordenada situada en un lado puede producir movimiento en la dirección
+contraria? las propiedades de desplazamiento relativo não indican hacia dónde se empuja el elemento, sino desde dónde se le aplica el empuje.*/
+
+/*Cambie el tipo de posicionamiento. En la regla experimental del segundo artículo, sustituya:
+position: relative;
+por:
+position: absolute;
+Visualice los cambios.
+a) ¿Qué ocurrió con las demás tarjetas? Las demás tarjetas se recolocaron automáticamente como si la segunda tarjeta ya no existiera
+b) ¿Continúa reservado el espacio original de Petra? no
+c) ¿Respecto de qué área parecen calcularse top y left? Se calculan respecto a su ancestro posicionado más cercano.*/
+
+/*Cambie el sistema de referencia. Consiga que .maravillas sea el antecesor posicionado de la
+tarjeta absoluta sin desplazar el contenedor de su ubicación normal.
+Visualice la página.
+a) ¿Desde dónde se calculan ahora top y left? Se calculan desde la esquina superior izquierda del contenedor padre
+b) ¿Por qué se modificó la referencia si el contenedor no fue desplazado? la propiedad position: relative cumple un doble propósito: por un lado, sirve para desplazar un elemento si se le indican coordenadas */
+
+/*31. Compare relativo y absoluto. A partir de lo observado, responda:
+a) ¿Cuál de los dos tipos de posicionamiento conserva el espacio original del elemento? El posicionamiento relativo
+b) ¿Cuál permite que las demás cajas ocupen ese espacio? El posicionamiento absoluto
+c) ¿Cómo se determina el sistema de referencia de un elemento absoluto? Se busca hacia arriba en la jerarquía del DOM el primer ancestro que tenga un posicionamiento declarado distinto de static */
+
+.continente {
+    z-index: 1;
+    padding: 0.25rem 0.75rem;
+    color: var(--color-superficie);
+    background-color: var(--color-acento);
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.volver-arriba {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    color: var(--color-superficie);
+    background-color: var(--color-acento);
+    border: 2px solid var(--color-superficie);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.seccion-historia {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: var(--color-fondo-secundario);
+}
+
+.historia-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.historia-contenido > * {
+    flex: 1 1 300px;
+}
+
+/* 41. Formateo del pie de página */
+.pie-pagina {
+    padding: 2rem 0 5rem 0;
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
 }
