@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Motocity El Salvador — Motocicletas nuevas, repuestos y accesorios. Financiamiento disponible hasta 36 meses." />
+  <title>Motocicletas | Motocity El Salvador</title>
+  <link rel="stylesheet" href="css/motocitystyle.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============ TOPBAR ============ -->
+  <div class="topbar">
+    <div class="topbar__inner">
+      <p>📞 WhatsApp: 2222-2222 &nbsp;|&nbsp; ✉️ ventas@motocity.com.sv</p>
+      <p>🚚 Envío gratis en compras mayores a $50 (San Salvador)</p>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+
+      <!-- Logo -->
+      <a href="/" class="logo">
+        <span class="logo__mark">M</span>
+        <span class="logo__text">
+          MOTO<em>CITY</em>
+          <small>El Salvador</small>
+        </span>
+      </a>
+
+      <!-- Buscador -->
+      <form class="search" role="search" onsubmit="event.preventDefault();">
+        <input type="search" placeholder="Buscar motos, repuestos, accesorios..." aria-label="Buscar productos" />
+        <button type="submit" aria-label="Buscar">🔍</button>
+      </form>
+
+      <!-- Acciones -->
+      <div class="header-actions">
+        <a href="#" class="icon-btn" aria-label="Mi cuenta">👤<span>Cuenta</span></a>
+        <a href="#" class="icon-btn" aria-label="Favoritos">❤️<span>Favoritos</span></a>
+        <a href="#" class="icon-btn icon-btn--cart" aria-label="Carrito">
+          🛒<span>Carrito</span>
+          <em class="cart-count">0</em>
+        </a>
+      </div>
+    </div>
+
+    <!-- Navegación principal -->
+    <nav class="main-nav" aria-label="Categorías principales">
+      <ul>
+        <li><a href="#" class="is-active">Motocicletas</a></li>
+        <li><a href="#">Repuestos</a></li>
+        <li><a href="#">Accesorios</a></li>
+        <li><a href="#">Cascos</a></li>
+        <li><a href="#">Llantas</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Financiamiento</a></li>
+        <li><a href="#" class="is-highlight">Ofertas 🔥</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <span class="eyebrow">Categoría · Motocicletas</span>
+        <h1>Encuentra tu próxima <em>moto</em> en Motocity</h1>
+        <p>
+          Las mejores marcas, financiamiento hasta 36 meses sin recargo
+          y entrega en todo El Salvador. Desde scooters urbanas hasta
+          motos deportivas de alto cilindraje.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#catalogo" class="btn btn--primary">Ver motocicletas</a>
+          <a href="#" class="btn btn--ghost">Solicitar financiamiento</a>
+        </div>
+
+        <ul class="hero__stats">
+          <li><strong>+120</strong><span>Modelos</span></li>
+          <li><strong>+8</strong><span>Marcas</span></li>
+          <li><strong>24h</strong><span>Entrega</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__visual">
+        <span class="hero__badge">🏆 N°1 en El Salvador</span>
+        <span class="hero__bike" role="img" aria-label="Motocicleta">🏍️</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ BREADCRUMB + TÍTULO ============ -->
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <strong>Motocicletas</strong>
+    </nav>
+
+    <div class="category-head">
+      <h2>Motocicletas</h2>
+      <p>Mostrando <strong>1–12</strong> de <strong>128</strong> productos</p>
+    </div>
+  </div>
+
+  <!-- ============ CATÁLOGO (LAYOUT CSS GRID) ============ -->
+  <main class="container shop-layout" id="catalogo">
+
+    <!-- Sidebar de filtros -->
+    <aside class="filters" aria-label="Filtros de productos">
+      <h3>Filtrar por</h3>
+
+      <div class="filter-group">
+        <h4>Marca</h4>
+        <label><input type="checkbox" /> Honda</label>
+        <label><input type="checkbox" /> Yamaha</label>
+        <label><input type="checkbox" /> Suzuki</label>
+        <label><input type="checkbox" /> Bajaj</label>
+        <label><input type="checkbox" /> KTM</label>
+        <label><input type="checkbox" /> Italika</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Cilindraje</h4>
+        <label><input type="checkbox" /> 50–125 cc</label>
+        <label><input type="checkbox" /> 150–250 cc</label>
+        <label><input type="checkbox" /> 300–500 cc</label>
+        <label><input type="checkbox" /> 600+ cc</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Precio</h4>
+        <input type="range" min="500" max="15000" value="8000" aria-label="Rango de precio" />
+        <div class="price-labels"><span>$500</span><span>$15,000</span></div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Tipo</h4>
+        <label><input type="checkbox" /> Deportiva</label>
+        <label><input type="checkbox" /> Scooter</label>
+        <label><input type="checkbox" /> Motocross</label>
+        <label><input type="checkbox" /> Turismo</label>
+        <label><input type="checkbox" /> Trabajo</label>
+      </div>
+
+      <button class="btn btn--primary btn--full">Aplicar filtros</button>
+    </aside>
+
+    <!-- Zona de productos -->
+    <div class="products-area">
+
+      <div class="toolbar">
+        <span>Ordenar por:</span>
+        <select aria-label="Ordenar productos">
+          <option>Relevancia</option>
+          <option>Precio: menor a mayor</option>
+          <option>Precio: mayor a menor</option>
+          <option>Más nuevos</option>
+        </select>
+      </div>
+
+      <div class="products-grid">
+
+        <article class="product-card">
+          <span class="badge badge--new">Nuevo</span>
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Honda</span>
+            <h3>CB125F 2025</h3>
+            <p class="specs">125cc · 4 tiempos · 5 velocidades</p>
+            <div class="price"><strong>$2,150</strong><del>$2,350</del></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="badge badge--offer">-12%</span>
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Yamaha</span>
+            <h3>FZ25 ABS</h3>
+            <p class="specs">250cc · Inyección · ABS</p>
+            <div class="price"><strong>$4,890</strong><del>$5,550</del></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Suzuki</span>
+            <h3>Gixxer 150</h3>
+            <p class="specs">150cc · Deportiva · LED</p>
+            <div class="price"><strong>$3,200</strong></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="badge badge--new">Nuevo</span>
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">KTM</span>
+            <h3>Duke 200</h3>
+            <p class="specs">200cc · Naked · ABS</p>
+            <div class="price"><strong>$5,400</strong></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="badge badge--offer">-8%</span>
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Bajaj</span>
+            <h3>Pulsar NS200</h3>
+            <p class="specs">200cc · Deportiva</p>
+            <div class="price"><strong>$3,650</strong><del>$3,980</del></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Italika</span>
+            <h3>FT150</h3>
+            <p class="specs">150cc · Trabajo · Carga</p>
+            <div class="price"><strong>$1,890</strong></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Honda</span>
+            <h3>XRE 300 Sahara</h3>
+            <p class="specs">300cc · Aventura · ABS</p>
+            <div class="price"><strong>$7,250</strong></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="badge badge--new">Nuevo</span>
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Yamaha</span>
+            <h3>MT-03</h3>
+            <p class="specs">321cc · Naked · Bifaro</p>
+            <div class="price"><strong>$6,900</strong></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Suzuki</span>
+            <h3>V-Strom 250 SX</h3>
+            <p class="specs">250cc · Turismo</p>
+            <div class="price"><strong>$5,850</strong></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="badge badge--offer">-15%</span>
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Bajaj</span>
+            <h3>Boxer CT100</h3>
+            <p class="specs">100cc · Trabajo</p>
+            <div class="price"><strong>$1,290</strong><del>$1,520</del></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">KTM</span>
+            <h3>RC 390</h3>
+            <p class="specs">373cc · Deportiva · Track</p>
+            <div class="price"><strong>$8,400</strong></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img">🏍️</div>
+          <div class="product-card__body">
+            <span class="brand">Honda</span>
+            <h3>PCX 160</h3>
+            <p class="specs">160cc · Scooter · Automática</p>
+            <div class="price"><strong>$3,950</strong></div>
+            <button class="btn btn--primary btn--full">Agregar al carrito</button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Paginación -->
+      <nav class="pagination" aria-label="Paginación">
+        <a href="#" class="is-active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <span>…</span>
+        <a href="#">11</a>
+        <a href="#" class="pagination__next">Siguiente →</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <!-- ============ BENEFICIOS ============ -->
+  <section class="benefits">
+    <div class="benefits__grid">
+      <div class="benefit"><span>🚚</span><h4>Envío nacional</h4><p>Entrega en 24–72 h</p></div>
+      <div class="benefit"><span>💳</span><h4>Financiamiento</h4><p>Hasta 36 meses</p></div>
+      <div class="benefit"><span>🛠️</span><h4>Taller autorizado</h4><p>Servicio técnico</p></div>
+      <div class="benefit"><span>🛡️</span><h4>Garantía</h4><p>1 año o 10,000 km</p></div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contacto">
+    <div class="site-footer__grid">
+
+      <div class="footer-brand">
+        <span class="logo__mark">M</span>
+        <p><strong>MOTOCITY El Salvador</strong></p>
+        <p class="muted">Tu tienda de motocicletas de confianza desde 2015.</p>
+        <p class="muted">© 2025 Motocity. Todos los derechos reservados.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#">Motocicletas</a></li>
+          <li><a href="#">Repuestos</a></li>
+          <li><a href="#">Accesorios</a></li>
+          <li><a href="#">Ofertas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Atención</h4>
+        <ul>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Financiamiento</a></li>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

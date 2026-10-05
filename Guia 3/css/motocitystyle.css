@@ -1,0 +1,538 @@
+/* "Actúa como un desarrollador Front-End experto. Necesito que rediseñes la página de inicio de un sitio web salvadoreño manteniendo los siguientes requerimientos estrictos:
+
+a) Temática y finalidad: El sitio es [indicar temática, por ejemplo: un portal de turismo, gastronomía o cultura de El Salvador], enfocado en mostrar la riqueza del país de forma moderna y atractiva.*
+
+b) Contenido esencial: Debe conservar secciones clave como la cabecera (header), el menú de navegación, una sección principal de bienvenida (hero), las secciones de contenido destacado y el pie de página (footer).*
+
+c) Identidad visual: Mantén una paleta de colores coherente con las páginas anteriores de mi proyecto (tonos limpios, profesionales y acordes a la temática).
+
+d) Uso obligatorio de CSS Grid: La distribución principal (layout macro de la página: por ejemplo, organizar el área de contenido principal, barras laterales y secciones de bloques) debe construirse obligatoriamente con CSS Grid (display: grid, grid-template-areas, grid-template-columns, etc.). Puedes usar Flexbox únicamente para alinear elementos internos específicos (como los enlaces del menú o la alineación de botones).*
+
+e) Código separado: Proporcióname el código en bloques separados: primero el código HTML completo y limpio, y luego las reglas CSS en un archivo de estilo independiente o bloque bien delimitado." */
+
+/* ========================================================================
+   MOTOCITY — Hoja de estilos principal
+   Layout macro con CSS GRID · Alineación interna con Flexbox
+   ======================================================================== */
+
+/* ---------------------------------------------------------------
+   1) RESET + VARIABLES
+--------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colores marca Motocity */
+  --rojo:        #D62828;
+  --rojo-dark:   #A81E1E;
+  --negro:       #1A1A1A;
+  --gris:        #4A4A4A;
+  --gris-claro:  #F5F5F5;
+  --borde:       #E5E5E5;
+  --blanco:      #FFFFFF;
+  --amarillo:    #F4A300;
+
+  /* Espaciado y forma */
+  --radius:      10px;
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:   0 8px 24px rgba(0,0,0,0.10);
+  --transition:  0.25s ease;
+
+  /* Ancho de contenedor */
+  --max-w:       1280px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--blanco);
+  color: var(--negro);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+/* Contenedor maestro */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+
+/* ---------------------------------------------------------------
+   2) TOPBAR — layout con GRID
+--------------------------------------------------------------- */
+.topbar {
+  background: var(--negro);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.82rem;
+}
+.topbar__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0.55rem 1.5rem;
+}
+
+
+/* ---------------------------------------------------------------
+   3) SITE HEADER — GRID MACRO (logo | buscador | acciones)
+--------------------------------------------------------------- */
+.site-header {
+  background: var(--blanco);
+  border-bottom: 1px solid var(--borde);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.logo__mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: var(--rojo);
+  color: var(--blanco);
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+.logo__text {
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--negro);
+}
+.logo__text em {
+  color: var(--rojo);
+  font-style: normal;
+}
+.logo__text small {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--gris);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Buscador — grid interno */
+.search {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background: var(--gris-claro);
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  overflow: hidden;
+  transition: border var(--transition);
+}
+.search:focus-within { border-color: var(--rojo); }
+.search input {
+  border: none;
+  background: transparent;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.92rem;
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+}
+.search button {
+  border: none;
+  background: var(--rojo);
+  color: var(--blanco);
+  padding: 0 1.3rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background var(--transition);
+}
+.search button:hover { background: var(--rojo-dark); }
+
+/* Acciones (Flexbox para íconos) */
+.header-actions {
+  display: flex;
+  gap: 1.2rem;
+}
+.icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.15rem;
+  color: var(--negro);
+  position: relative;
+  transition: color var(--transition);
+  line-height: 1;
+}
+.icon-btn span {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--gris);
+  margin-top: 3px;
+  letter-spacing: 0.3px;
+}
+.icon-btn:hover { color: var(--rojo); }
+
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: var(--rojo);
+  color: var(--blanco);
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-style: normal;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  padding: 0 4px;
+}
+
+/* Navegación — Flexbox para fila de enlaces */
+.main-nav {
+  background: var(--negro);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.main-nav ul {
+  display: flex;
+  gap: 0.3rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  overflow-x: auto;
+}
+.main-nav a {
+  display: inline-block;
+  padding: 0.85rem 1.1rem;
+  color: rgba(255,255,255,0.78);
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all var(--transition);
+}
+.main-nav a:hover,
+.main-nav a.is-active {
+  color: var(--blanco);
+  border-color: var(--rojo);
+}
+.main-nav a.is-highlight { color: var(--amarillo); }
+
+
+/* ---------------------------------------------------------------
+   4) HERO — GRID MACRO (contenido | visual)
+--------------------------------------------------------------- */
+.hero {
+  background: linear-gradient(135deg, var(--negro) 0%, #2A2A2A 100%);
+  color: var(--blanco);
+  padding: 4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 50%,
+              rgba(214,40,40,0.35), transparent 60%);
+  pointer-events: none;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rojo);
+  background: rgba(214,40,40,0.12);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.2rem;
+}
+.hero h1 em {
+  color: var(--rojo);
+  font-style: normal;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+/* Acciones del hero (Flexbox) */
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--transition);
+}
+.btn--primary {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+.btn--primary:hover {
+  background: var(--rojo-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(214,40,40,0.35);
+}
+.btn--ghost {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--blanco);
+  background: transparent;
+}
+.btn--ghost:hover {
+  border-color: var(--blanco);
+  background: rgba(255,255,255,0.08);
+}
+.btn--full { width: 100%; }
+
+/* Stats del hero — grid de 3 columnas */
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  width: fit-content;
+}
+.hero__stats strong {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--blanco);
+}
+.hero__stats span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Visual del hero */
+.hero__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+}
+.hero__bike {
+  font-size: clamp(8rem, 20vw, 16rem);
+  filter: drop-shadow(0 20px 40px rgba(214,40,40,0.5));
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.hero__badge {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  background: var(--amarillo);
+  color: var(--negro);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ---------------------------------------------------------------
+   5) BREADCRUMB + TÍTULO CATEGORÍA
+--------------------------------------------------------------- */
+.breadcrumb {
+  padding-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--gris);
+}
+.breadcrumb a:hover { color: var(--rojo); }
+.breadcrumb span { margin: 0 0.5rem; opacity: 0.5; }
+.breadcrumb strong { color: var(--negro); }
+
+.category-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 1rem;
+  padding: 1rem 0 1.5rem;
+  border-bottom: 1px solid var(--borde);
+  margin-bottom: 2rem;
+}
+.category-head h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.category-head p {
+  color: var(--gris);
+  font-size: 0.88rem;
+}
+
+
+/* ---------------------------------------------------------------
+   6) SHOP LAYOUT — GRID MACRO (sidebar filtros | zona productos)
+--------------------------------------------------------------- */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;   /* Sidebar fijo · Contenido flexible */
+  gap: 2.5rem;
+  padding-bottom: 4rem;
+  align-items: start;
+}
+
+/* --- Sidebar filtros --- */
+.filters {
+  background: var(--gris-claro);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: sticky;
+  top: 120px;
+}
+.filters h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--borde);
+}
+.filter-group {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--borde);
+}
+.filter-group:last-of-type { border-bottom: none; }
+.filter-group h4 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--negro);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--gris);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.filter-group label:hover { color: var(--negro); }
+.filter-group input[type="checkbox"] { accent-color: var(--rojo); }
+.filter-group input[type="range"] {
+  width: 100%;
+  accent-color: var(--rojo);
+}
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--gris);
+}
+
+/* --- Toolbar (Flexbox para alineación) --- */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--gris);
+}
+.toolbar select {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--blanco);
+  font-family: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------------
+   7) PRODUCTS GRID — subgrid de tarjetas
+--------------------------------------------------------------- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.4rem;
+}
+
+.product-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;   /* Imagen arriba · Cuerpo abajo */
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all;
+}
