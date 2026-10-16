@@ -102,12 +102,12 @@ font-size: 35px;
 #btnOcultar {
 top: 17px;
 left: -200px;
-padding: 4px 9px;
+padding: 4px 9px;  
 color: var(--color-secundario);
 font-size: 30px;
 }
 
-#checkMenu:checked ~ .sidebar {
+#checkMenu:checked ~ .sidebar { 
 left: 0;
 }
 
