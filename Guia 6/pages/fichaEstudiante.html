@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de Ficha de Estudiante</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="container py-5">
+    <h2>Ficha de Registro del Estudiante</h2>
+    <form id="formEstudiante" class="needs-validation" novalidate>
+        
+        <!-- Carnet -->
+        <div class="mb-3">
+            <label for="carnet" class="form-label">Carnet (Ej: AB001):</label>
+            <input type="text" id="carnet" class="form-control" placeholder="AB001" required>
+            <div class="invalid-feedback">Formato inválido. Debe ser dos letras seguidas de tres números (Ej. AB001).</div>
+        </div>
+
+        <!-- Nombre Completo -->
+        <div class="mb-3">
+            <label for="nombreCompleto" class="form-label">Nombre Completo:</label>
+            <input type="text" id="nombreCompleto" class="form-control" required>
+            <div class="invalid-feedback">El nombre no debe contener números ni caracteres especiales.</div>
+        </div>
+
+        <!-- DUI -->
+        <div class="mb-3">
+            <label for="dui" class="form-label">Número de DUI (Formato: ########-#):</label>
+            <input type="text" id="dui" class="form-control" placeholder="12345678-9" required>
+            <div class="invalid-feedback">Formato de DUI inválido (Ej: 12345678-9).</div>
+        </div>
+
+        <!-- NIT -->
+        <div class="mb-3">
+            <label for="nit" class="form-label">Número de NIT (Formato: ####-######-###-#):</label>
+            <input type="text" id="nit" class="form-control" placeholder="1234-123456-123-1" required>
+            <div class="invalid-feedback">Formato de NIT inválido (Ej: 1234-123456-123-1).</div>
+        </div>
+
+        <!-- Fecha de Nacimiento -->
+        <div class="mb-3">
+            <label for="fechaNac" class="form-label">Fecha de Nacimiento (DD/MM/AAAA o DD-MM-AAAA):</label>
+            <input type="text" id="fechaNac" class="form-control" placeholder="DD/MM/AAAA" required>
+            <div class="invalid-feedback">Formato de fecha inválido (Use DD/MM/AAAA o DD-MM-AAAA).</div>
+        </div>
+
+        <!-- Correo Electrónico -->
+        <div class="mb-3">
+            <label for="correo" class="form-label">Correo Electrónico:</label>
+            <input type="email" id="correo" class="form-control" placeholder="ejemplo@correo.com" required>
+            <div class="invalid-feedback">Ingrese un correo electrónico válido.</div>
+        </div>
+
+        <!-- Edad -->
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad (Solo números):</label>
+            <input type="text" id="edad" class="form-control" required>
+            <div class="invalid-feedback">La edad debe contener únicamente números enteros positivos.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Validar y Registrar</button>
+    </form>
+
+    <script>
+        document.getElementById("formEstudiante").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let esValido = true;
+
+            // 1. Validación de Carnet: Dos letras seguidas de tres números -> /^[A-Z]{2}\d{3}$/i
+            const regexCarnet = /^[A-Z]{2}\d{3}$/i;
+            const carnetVal = document.getElementById("carnet").value;
+            if (!regexCarnet.test(carnetVal)) {
+                document.getElementById("carnet").classList.add("is-invalid");
+                esValido = false;
+            } else {
+                document.getElementById("carnet").classList.remove("is-invalid");
+                document.getElementById("carnet").classList.add("is-valid");
+            }
+
+            // 2. Validación de Nombre Completo (Solo letras y espacios, permitiendo acentos) -> /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/
+            const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+            const nombreVal = document.getElementById("nombreCompleto").value;
+            if (!regexNombre.test(nombreVal)) {
+                document.getElementById("nombreCompleto").classList.add("is-invalid");
+                esValido = false;
+            } else {
+                document.getElementById("nombreCompleto").classList.remove("is-invalid");
+                document.getElementById("nombreCompleto").classList.add("is-valid");
+            }
+
+            // 3. Validación de DUI: 8 dígitos, un guion y 1 dígito verificador -> /^\d{8}-\d{1}$/
+            const regexDui = /^\d{8}-\d{1}$/;
+            const duiVal = document.getElementById("dui").value;
+            if (!regexDui.test(duiVal)) {
+                document.getElementById("dui").classList.add("is-invalid");
+                esValido = false;
+            } else {
+                document.getElementById("dui").classList.remove("is-invalid");
+                document.getElementById("dui").classList.add("is-valid");
+            }
+
+            // 4. Validación de NIT: Formato ####-######-###-# -> /^\d{4}-\d{6}-\d{3}-\d{1}$/
+            const regexNit = /^\d{4}-\d{6}-\d{3}-\d{1}$/;
+            const nitVal = document.getElementById("nit").value;
+            if (!regexNit.test(nitVal)) {
+                document.getElementById("nit").classList.add("is-invalid");
+                esValido = false;
+            } else {
+                document.getElementById("nit").classList.remove("is-invalid");
+                document.getElementById("nit").classList.add("is-valid");
+            }
+
+            // 5. Validación de Fecha de Nacimiento (Día, mes y año: DD/MM/AAAA o DD-MM-AAAA) -> /^(0[1-9]|[12][0-9]|3[01])[\/\-](0[1-9]|1[012])[\/\-]\d{4}$/
+            const regexFecha = /^(0[1-9]|[12][0-9]|3[01])[\/\-](0[1-9]|1[012])[\/\-]\d{4}$/;
+            const fechaVal = document.getElementById("fechaNac").value;
+            if (!regexFecha.test(fechaVal)) {
+                document.getElementById("fechaNac").classList.add("is-invalid");
+                esValido = false;
+            } else {
+                document.getElementById("fechaNac").classList.remove("is-invalid");
+                document.getElementById("fechaNac").classList.add("is-valid");
+            }
+
+            // 6. Validación de Correo Electrónico -> Patrón estándar para emails
+            const regexCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const correoVal = document.getElementById("correo").value;
+            if (!regexCorreo.test(correoVal)) {
+                document.getElementById("correo").classList.add("is-invalid");
+                esValido = false;
+            } else {
+                document.getElementById("correo").classList.remove("is-invalid");
+                document.getElementById("correo").classList.add("is-valid");
+            }
+
+            // 7. Validación de Edad (Solo números enteros positivos) -> /^\d+$/
+            const regexEdad = /^\d+$/;
+            const edadVal = document.getElementById("edad").value;
+            if (!regexEdad.test(edadVal)) {
+                document.getElementById("edad").classList.add("is-invalid");
+                esValido = false;
+            } else {
+                document.getElementById("edad").classList.remove("is-invalid");
+                document.getElementById("edad").classList.add("is-valid");
+            }
+
+            // Mensaje final de éxito si todo es correcto
+            if (esValido) {
+                alert("¡Todos los datos del estudiante han sido validados correctamente!");
+            }
+        });
+    </script>
+</body>
+</html>
