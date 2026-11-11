@@ -1,155 +1,109 @@
-
-// Referencias a los botones
-const buttonAgregarPagina =
-    document.querySelector("#idAgregarPagina");
-
-const buttonMenu =
-    document.querySelector("#idAgregarMenu");
-
-const buttonTitulo =
-    document.querySelector("#idAgregarTitulo");
-
-const buttonParrafo =
-    document.querySelector("#idAgregarParrafo");
+// Inicializando referencia de botones con metodos actuales
+const buttonAgregarPagina = document.querySelector("#idAgregarPagina");
+const buttonMenu = document.querySelector("#idAgregarMenu");
+const buttonTitulo = document.querySelector("#idAgregarTitulo");
+const buttonParrafo = document.querySelector("#idAgregarParrafo");
 
 const pagina = document.querySelector("#idPagina");
 
-// Agregar contenedor
 buttonAgregarPagina.onclick = function () {
+  const contenedorVerificando = document.querySelector("#idDivPage");
 
-    const contenedorVerificado =
-        document.querySelector("#idDivPage");
+  if (!contenedorVerificando) {
+    //Creando el contenedor de la pagina
+    const contenedor = document.createElement("div");
+    contenedor.setAttribute("id", "idDivPage");
+    contenedor.setAttribute("class", "container");
+    contenedor.setAttribute(
+      "style",
+      "border:solid 1px black; height:500px; overflow: scroll; overflow-x: hidden;"
+    );
 
-    if (!contenedorVerificado) {
-
-        const contenedor = document.createElement("div");
-
-        contenedor.setAttribute("id", "idDivPage");
-
-        contenedor.setAttribute("class", "container");
-
-        contenedor.setAttribute(
-            "style",
-            "border: solid 1px black; min-height: 500px; overflow: auto;"
-        );
-
-        pagina.appendChild(contenedor);
-
-    } else {
-        alert("Ya se agregó el contenedor de la página");
-    }
+    pagina.appendChild(contenedor);
+  } else {
+    alert("Ya se agrego el contenedor de la pagina");
+  }
 };
 
-// Agregar menú
 buttonMenu.onclick = function () {
+  //verificando que exista el contenedor de la pagina
+  const contenedor = document.querySelector("#idDivPage");
 
-    const contenedor =
-        document.querySelector("#idDivPage");
+  if (contenedor) {
+    // Verificando que exista el menu
+    const menuVerificar = document.querySelectorAll("#idDivPage > header");
 
-    if (contenedor) {
-
-        const menuVerificar =
-            contenedor.querySelectorAll("header");
-
-        if (menuVerificar.length === 0) {
-
-            const menu = document.querySelector("header");
-
-            const nuevoMenu = menu.cloneNode(true);
-
-            contenedor.appendChild(nuevoMenu);
-
-        } else {
-            alert("Ya ha sido agregado el menú");
-        }
-
+    if (menuVerificar.length == 0) {
+      // Clonando el menu principal de nuestra pagina
+      // Para luego crearlo en la nueva pagina
+      const menu = document.querySelector("header").cloneNode(true);
+      contenedor.appendChild(menu);
     } else {
-        alert("Primero debe agregar un contenedor de página");
+      alert("Ya ha sido agregado el menu");
     }
+  } else {
+    alert("Primero debe agregar un contenedor de pagina");
+  }
 };
 
-// Agregar título
 buttonTitulo.onclick = function () {
+  //verificando que exista el contenedor de la pagina
+  const contenedor = document.querySelector("#idDivPage");
 
-    const contenedor =
-        document.querySelector("#idDivPage");
+  // Verificando que exista el menu
+  const menu = document.querySelectorAll("#idDivPage > header");
 
-    if (contenedor) {
+  if (contenedor) {
+    if (menu.length > 0) {
+      let titulo = prompt("Agregue el titulo de la pagina");
 
-        const menu =
-            contenedor.querySelectorAll("header");
+      if (titulo != "" && titulo != null) {
+        const h1 = document.createElement("h1");
+        // Agregando clases de Bootstrap
+        h1.setAttribute("class", "display-5 text-center fw-bold py-4 my-4");
+        h1.innerHTML = titulo;
 
-        if (menu.length > 0) {
-
-            let titulo = prompt(
-                "Agregue el título de la página"
-            );
-
-            if (titulo !== null && titulo.trim() !== "") {
-
-                const h3 = document.createElement("h3");
-
-                h3.setAttribute(
-                    "class",
-                    "display-5 text-center fw-bold py-4 my-4"
-                );
-
-                h3.textContent = titulo;
-
-                contenedor.appendChild(h3);
-
-            } else {
-                alert("No se ha registrado ningún título");
-            }
-
-        } else {
-            alert("Debe agregar un menú primero");
-        }
-
+        contenedor.appendChild(h1);
+      } else {
+        alert(
+          "No se ha registrado ningun titulo, por favor ingrese informacion"
+        );
+      }
     } else {
-        alert("Primero debe agregar un contenedor de página");
+      alert("Debe agregar un menu primero");
     }
+  } else {
+    alert("Primero debe agregar un contendor de pagina");
+  }
 };
 
-// Agregar párrafo
 buttonParrafo.onclick = function () {
+  //verificando que exista el contenedor de la pagina
+  const contenedor = document.querySelector("#idDivPage");
 
-    const contenedor =
-        document.querySelector("#idDivPage");
+  // Verificando que exista el menu
+  const menu = document.querySelectorAll("#idDivPage > header");
 
-    if (contenedor) {
+  if (contenedor) {
+    if (menu.length > 0) {
+      let texto = prompt("Agregue un parrafo a su pagina web");
 
-        const menu =
-            contenedor.querySelectorAll("header");
-
-        if (menu.length > 0) {
-
-            let texto = prompt(
-                "Agregue un párrafo a su página web"
-            );
-
-            if (texto !== null && texto.trim() !== "") {
-
-                const parrafo = document.createElement("p");
-
-                parrafo.setAttribute(
-                    "class",
-                    "lead mb-4 py-4"
-                );
-
-                parrafo.textContent = texto;
-
-                contenedor.appendChild(parrafo);
-
-            } else {
-                alert("No se ha registrado ningún párrafo");
-            }
-
-        } else {
-            alert("Debe agregar un menú primero");
-        }
-
+      if (texto != "" && texto != null) {
+        const parrafo = document.createElement("p");
+        // Agregando clases de Bootstrap
+        parrafo.setAttribute("class", "lead mb-4 py-4");
+        parrafo.innerHTML = texto;
+        // Creando parrafo como hijo del contenedor
+        contenedor.appendChild(parrafo);
+      } else {
+        alert(
+          "No se ha registrado ningun parrafo, por favor ingrese informacion"
+        );
+      }
     } else {
-        alert("Primero debe agregar un contenedor de página");
+      alert("Debe agregar un menu primero");
     }
+  } else {
+    alert("Primero debe agregar un contenedor de pagina");
+  }
 };

@@ -1,3 +1,5 @@
+// OBTENIENDO LA REFERENCIA DE LOS BOTONES
+// POR MEDIO DEL .getElementById
 
 const buttonSpan = document.getElementById("idBtnSpan");
 const buttonP = document.getElementById("idBtnP");
@@ -5,39 +7,34 @@ const buttonDiv = document.getElementById("idBtnDiv");
 const buttonButton = document.getElementById("idBtnButton");
 const imprimir = document.getElementById("idImprimirResultado");
 
-// Función para contar elementos HTML
+// DEFINICION DE FUNCIONES
 const contarElementos = function (elemento) {
-    const arrayElement = document.getElementsByTagName(elemento);
+  // OBTENIENDO EL NUMERO DE ETIQUETAS SPAN QUE SE HAN CREADO
+  // EN EL DOCUMENTO HTML
+  let arrayElement = document.getElementsByTagName(elemento);
+  console.log(
+    `Etiquetas buscadas <${elemento}></${elemento}> / Total encontradas : ${arrayElement.length}`
+  );
+  for (const i of arrayElement) {
+    console.log(i);
+  }
 
-    console.log(
-        `Etiquetas buscadas <${elemento}> / Total encontradas: ${arrayElement.length}`
-    );
-
-    for (const item of arrayElement) {
-        console.log(item);
-    }
-
-    if (imprimir) {
-        imprimir.textContent =
-            `${elemento}: ${arrayElement.length} elementos`;
-    }
-
-    alert("Revise la consola del navegador");
+  alert("Revise la consola del navegador");
 };
 
-// Eventos de los botones
+//DEFINICION DE EVENTOS PARA LOS BOTONES
 buttonSpan.onclick = () => {
-    contarElementos("span");
+  contarElementos("span");
 };
 
 buttonP.onclick = () => {
-    contarElementos("p");
+  contarElementos("p");
 };
 
 buttonDiv.onclick = () => {
-    contarElementos("div");
+  contarElementos("div");
 };
 
 buttonButton.onclick = () => {
-    contarElementos("button");
+  contarElementos("button");
 };

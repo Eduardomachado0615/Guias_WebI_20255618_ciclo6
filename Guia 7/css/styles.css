@@ -1,1 +1,18 @@
 @import url("../bootstrap/icons/bootstrap-icons.css");
+
+/* ---- Ejercicio 2: catalogo de juegos ---- */
+.juego-miniatura {
+  aspect-ratio: 365 / 206;
+  object-fit: cover;
+  background-color: #e9ecef;
+}
+
+.juego-captura {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: #e9ecef;
+}
+
+.juego-descripcion {
+  white-space: pre-line;
+}
